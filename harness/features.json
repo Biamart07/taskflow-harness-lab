@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "features": [
     {
       "id": "TASK-001",
@@ -13,6 +13,11 @@
       "verification": {
         "status": "not_configured",
         "commands": []
+      },
+      "approval": {
+        "status": "not_requested",
+        "approved_by": null,
+        "approved_at": null
       }
     },
     {
@@ -29,6 +34,11 @@
       "verification": {
         "status": "not_configured",
         "commands": []
+      },
+      "approval": {
+        "status": "not_requested",
+        "approved_by": null,
+        "approved_at": null
       }
     },
     {
@@ -45,6 +55,11 @@
       "verification": {
         "status": "not_configured",
         "commands": []
+      },
+      "approval": {
+        "status": "not_requested",
+        "approved_by": null,
+        "approved_at": null
       }
     },
     {
@@ -61,6 +76,11 @@
       "verification": {
         "status": "not_configured",
         "commands": []
+      },
+      "approval": {
+        "status": "not_requested",
+        "approved_by": null,
+        "approved_at": null
       }
     },
     {
@@ -77,6 +97,11 @@
       "verification": {
         "status": "not_configured",
         "commands": []
+      },
+      "approval": {
+        "status": "not_requested",
+        "approved_by": null,
+        "approved_at": null
       }
     },
     {
@@ -91,8 +116,13 @@
       "verification": {
         "status": "not_configured",
         "commands": []
+      },
+      "approval": {
+        "status": "not_requested",
+        "approved_by": null,
+        "approved_at": null
       }
     }
   ],
-  "note": "Feature registry for planning only. Implementation and verification commands are not configured. A future scheduler/verifier must enforce state transitions."
+  "note": "State transitions are a documented contract, not yet technically enforced. Verification and explicit human approval are both required before done. Review docs/feature-state-contract.md."
 }
