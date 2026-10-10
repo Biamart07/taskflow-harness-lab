@@ -18,4 +18,4 @@ jobs:
         with:
           node-version: '22'
       - name: Validate transition rules
-        run: node --test tests/validate-transition.test.mjs
+        run: node --test tests/*.test.mjs
