@@ -6,7 +6,7 @@ Build TaskFlow, a small Kanban task management web app, as a hands-on Harness En
 ## Session startup
 1. Read this file, `docs/architecture.md`, `docs/conventions.md`, and `PROGRESS.md`.
 2. Inspect the repository state before making changes.
-3. Work only within the currently authorized project phase.
+3. Read `harness/phases.json` and `harness/features.json` when present, and work only within the currently authorized project phase.
 
 ## Architecture
 - React, TypeScript, Vite and Tailwind CSS.
@@ -28,3 +28,4 @@ Build TaskFlow, a small Kanban task management web app, as a hands-on Harness En
 - Remove temporary debug artifacts and leave the repository in a reproducible state.
 - Update `PROGRESS.md` with completed work, ongoing work, blockers and next action.
 - Do not mark features done solely because their implementation looks correct.
+- `harness/features.json` is the structured feature registry. For now it is planning data, not an enforced scheduler/verifier.
