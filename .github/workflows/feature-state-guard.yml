@@ -1,0 +1,34 @@
+name: Feature state guard
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'harness/features.json'
+      - 'harness/check-feature-changes.mjs'
+      - 'tests/check-feature-changes.test.mjs'
+      - '.github/workflows/feature-state-guard.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test policy
+        run: node --test tests/check-feature-changes.test.mjs
+      - name: Reject unauthorized completion in pull requests
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git show "$BASE_SHA:harness/features.json" > /tmp/features-base.json
+          node harness/check-feature-changes.mjs /tmp/features-base.json harness/features.json
