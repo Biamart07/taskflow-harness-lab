@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "features": [
+    {
+      "id": "TASK-001",
+      "title": "Create task",
+      "state": "not_started",
+      "depends_on": [],
+      "acceptance_criteria": [
+        "User can create a task with a title",
+        "New task appears in Todo column"
+      ],
+      "verification": {
+        "status": "not_configured",
+        "commands": []
+      }
+    },
+    {
+      "id": "TASK-002",
+      "title": "Edit task",
+      "state": "not_started",
+      "depends_on": [
+        "TASK-001"
+      ],
+      "acceptance_criteria": [
+        "User can change an existing task title",
+        "Edited title persists after reload"
+      ],
+      "verification": {
+        "status": "not_configured",
+        "commands": []
+      }
+    },
+    {
+      "id": "TASK-003",
+      "title": "Delete task",
+      "state": "not_started",
+      "depends_on": [
+        "TASK-001"
+      ],
+      "acceptance_criteria": [
+        "User can delete a task",
+        "Deleted task does not return on reload"
+      ],
+      "verification": {
+        "status": "not_configured",
+        "commands": []
+      }
+    },
+    {
+      "id": "TASK-004",
+      "title": "Move between columns",
+      "state": "not_started",
+      "depends_on": [
+        "TASK-001"
+      ],
+      "acceptance_criteria": [
+        "User can change task status among Todo, In Progress and Done",
+        "Task status persists after reload"
+      ],
+      "verification": {
+        "status": "not_configured",
+        "commands": []
+      }
+    },
+    {
+      "id": "TASK-005",
+      "title": "Filter tasks",
+      "state": "not_started",
+      "depends_on": [
+        "TASK-001"
+      ],
+      "acceptance_criteria": [
+        "User can filter visible tasks",
+        "Clearing filters restores the full task list"
+      ],
+      "verification": {
+        "status": "not_configured",
+        "commands": []
+      }
+    },
+    {
+      "id": "TASK-006",
+      "title": "Persistence adapter",
+      "state": "not_started",
+      "depends_on": [],
+      "acceptance_criteria": [
+        "Tasks survive browser reload",
+        "UI components do not access localStorage directly"
+      ],
+      "verification": {
+        "status": "not_configured",
+        "commands": []
+      }
+    }
+  ],
+  "note": "Feature registry for planning only. Implementation and verification commands are not configured. A future scheduler/verifier must enforce state transitions."
+}
