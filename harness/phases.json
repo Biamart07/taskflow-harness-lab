@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "current_phase": 1,
+  "phases": [
+    {
+      "id": 1,
+      "name": "Foundation and architecture",
+      "state": "in_progress",
+      "human_approved": false
+    },
+    {
+      "id": 2,
+      "name": "Progress and feature state",
+      "state": "not_started",
+      "human_approved": false
+    },
+    {
+      "id": 3,
+      "name": "Executable verification",
+      "state": "not_started",
+      "human_approved": false
+    },
+    {
+      "id": 4,
+      "name": "Autonomy and session continuity",
+      "state": "not_started",
+      "human_approved": false
+    }
+  ],
+  "note": "Documentation only. This file does not technically enforce approval; protect phase transitions in a later harness component."
+}
