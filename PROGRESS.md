@@ -3,35 +3,39 @@
 ## Current phase
 Phase 3 — Executable verification.
 
-**State:** in_progress — initial transition preflight and CI tests added; owner review and secure approval gate still pending.
+**State:** in_progress — PR feature-state guard implemented; trusted human approval path still pending.
 
 ## Done
-- Phase 1 and Phase 2 approved by the owner on 2026-10-10.
-- Structured feature registry and state transition contract documented.
-- Added pure feature-state validator in `harness/validate-transition.mjs`.
-- Added 16 unit tests covering allowed and forbidden transitions, missing checks, stale revisions and human approval requirement.
-- Added GitHub Actions workflow `.github/workflows/harness-validation.yml`.
+- Phase 1 and Phase 2 formally approved by the owner on 2026-10-10.
+- Feature state transition validator and its tests created.
+- Added PR feature-state guard rejecting untrusted completion to done or edits to approval records.
+- Added unit tests for feature-state bypass attempts.
+- GitHub Actions configured to run unit tests on pushes and pull requests.
+- Documented required environment, branch protection and trusted promotion architecture in `docs/human-approval-gate.md`.
 
 ## In progress
-- Verify GitHub Actions test outcome and address any failures.
-- Design a trusted approval source inaccessible to the coding agent.
-- Connect state validation to controlled writes (currently preflight only).
+- Confirm new unit tests on latest GitHub Actions run.
+- Configure GitHub repository protections and owner-only reviewer controls.
+- Integrate protected human approval and verified revision into a trusted feature-promotion workflow.
 
 ## Blocked
-- Do not mark Phase 3 as done without owner approval.
-- JSON fields and caller-supplied flags are **not** proof of owner approval.
-- Validator does not intercept direct edits to `features.json`; a separate enforcement boundary is required.
+- GitHub integration cannot change branch protection or environment reviewer settings.
+- Repository protections are NOT confirmed active.
+- The PR guard alone does not block direct pushes or malicious edits to its own workflow.
+- Phase 4 requires separate explicit human approval.
 
 ## Next steps
-1. Review CI results: https://github.com/Biamart07/taskflow-harness-lab/actions.
-2. Explore validator examples with `node --test tests/validate-transition.test.mjs`.
-3. Implement an authoritative approval gate and prevent direct bypasses.
-4. Report verification evidence and request approval when Phase 3 is complete.
+1. Review `docs/human-approval-gate.md`.
+2. Owner configures GitHub environment and branch protection.
+3. Build and test the trusted, protected approval workflow.
+4. Run adversarial verification, report evidence, and request formal Phase 3 approval.
 
 ## Verification
-- CI workflow created; do not assume tests pass until the workflow reports success.
-- Local test execution unavailable in current working environment due to GitHub raw-host access failure.
+- Initial transition validator CI passed on 2026-10-10.
+- New feature-state guard tests require a confirmed CI result on the latest commit.
+- No application tests are configured or claimed passing.
 
 ## Handoff
-- Corrections within Phase 3 do not require repeated owner approval.
-- Approval for individual features and for phase transitions are distinct.
+- Corrections within current phase do not require per-change approval.
+- Feature completion needs tests and independently verified owner approval.
+- Protecting the approval system requires repository permissions that the agent cannot bypass.
