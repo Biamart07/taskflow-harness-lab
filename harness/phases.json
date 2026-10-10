@@ -1,17 +1,21 @@
 {
   "schema_version": 1,
-  "current_phase": 1,
+  "current_phase": 2,
   "phases": [
     {
       "id": 1,
       "name": "Foundation and architecture",
-      "state": "in_progress",
-      "human_approved": false
+      "state": "done",
+      "human_approved": true,
+      "approval_record": {
+        "source": "explicit owner approval in ChatGPT conversation",
+        "date": "2026-10-10"
+      }
     },
     {
       "id": 2,
       "name": "Progress and feature state",
-      "state": "not_started",
+      "state": "in_progress",
       "human_approved": false
     },
     {
@@ -27,5 +31,5 @@
       "human_approved": false
     }
   ],
-  "note": "Documentation only. This file does not technically enforce approval; protect phase transitions in a later harness component."
+  "note": "Human approval is recorded by convention only. A JSON file writable by the agent is not a secure enforcement gate."
 }
