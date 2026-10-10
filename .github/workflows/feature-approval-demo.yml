@@ -1,0 +1,30 @@
+name: Feature approval gate demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      feature_id:
+        description: 'Feature ID for demonstration (e.g., TASK-001)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  request-approval:
+    name: Wait for owner approval
+    runs-on: ubuntu-latest
+    environment: feature-approval
+    steps:
+      - name: Show approved gate
+        env:
+          FEATURE_ID: ${{ inputs.feature_id }}
+          ACTOR: ${{ github.actor }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          echo "Environment approval granted for demonstration."
+          echo "Feature: $FEATURE_ID"
+          echo "Triggered by: $ACTOR"
+          echo "Revision: $COMMIT_SHA"
+          echo "No feature state was changed; this workflow only tests the manual gate."
