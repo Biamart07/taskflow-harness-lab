@@ -27,5 +27,7 @@ Build TaskFlow, a small Kanban task management web app, as a hands-on Harness En
 - Record failed or unavailable checks honestly.
 - Remove temporary debug artifacts and leave the repository in a reproducible state.
 - Update `PROGRESS.md` with completed work, ongoing work, blockers and next action.
+- Feature completion requires passing required tests AND explicit owner approval; move verified features to `awaiting_approval` first.
+- Refer to `docs/feature-state-contract.md` for allowed transitions. Feature approval does not grant phase approval.
 - Do not mark features done solely because their implementation looks correct.
 - `harness/features.json` is the structured feature registry. For now it is planning data, not an enforced scheduler/verifier.
