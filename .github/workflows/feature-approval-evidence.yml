@@ -69,6 +69,7 @@ jobs:
           FEATURE_ID: ${{ inputs.feature_id }}
           REVISION: ${{ steps.identify.outputs.head }}
         run: |
+          node -e 'const p=require("./harness/feature-verification-policy.json");const c=p.features[process.env.FEATURE_ID]; if(!c||c.status!=="enabled"){console.error("Feature-specific tests not configured. Approval denied.");process.exit(1)}'
           curl --fail --silent --show-error --location \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
