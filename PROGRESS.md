@@ -131,3 +131,39 @@ PR #4 is open for owner review. No merge into main was performed.
   architecture and dependency manifests are unchanged. Still Phase 3.
 - Review gate remains pending: owner chooses a direction before approved Design
   System documentation and definitive interface implementation. No merge or push.
+
+## Estúdio Editorial refinements — 2026-10-11
+- Owner explicitly selected Estúdio Editorial: cream/violet, DM Sans, top navigation,
+  expressive heading and rounded cards. This supersedes the earlier direction-choice
+  pending notes. Detailed Design System and definitive implementation remain pending.
+  This narrative records session scope, not a harness approval or phase authorization.
+- Continued on local design/kanban-exploration; added isolated editorial-refinement
+  folder, preserving the three original explorations and production separation.
+- Refined column indicators with text plus distinct symbols; added optional sample
+  descriptions/deadlines to the same six immutable fictitious tasks. No task operations.
+- Compared stacked columns and accessible tabs at mobile widths; desktop retains
+  three columns. Provisional recommendation: mobile tabs, awaiting owner decision.
+- Added explicit light/dark previews, hover/focus/selection/error/disabled catalog,
+  empty/loading/error presets, interactive preview, gallery and 22 browser captures.
+- Proposed docs/design-system.md and docs/ux-guidelines.md: semantic tokens,
+  typography/geometry, component states, responsive behavior and future UX flows.
+  Both distinguish automated criteria, checks actually run and human review needs.
+- Chromium prototype checks passed: 20 fixture, 24 layout, 26 keyboard, 20 state,
+  20 scenario and 10 gallery/control checks. No script errors. DM Sans loaded.
+- 92 rendered contrast pairs passed: minimum text 5.005:1, minimum measured
+  non-text pair 3.729:1. Limited to sampled pairs, not complete WCAG certification.
+- Visually inspected light desktop, light stacked mobile, dark tabs mobile and
+  light/dark state/comparison captures; padded state crops preserve focus rings.
+- npm run check passed: lint, typecheck/build, 1 Vitest smoke, 45 harness tests.
+  npm run test:e2e -- --project=chromium passed: 1 production-build smoke, exit 0.
+  Production assets retain index-0T0maZy1.css and index-Cs-4TCFX.js.
+- git diff --check passed; production source, harness records/policies, workflows,
+  architecture and dependency manifests match the pre-refinement revision.
+- No dependencies installed, features implemented, approval records edited, push,
+  merge or Phase 4 work. All features remain not_started; current phase is 3.
+- Pending/limits: owner review of tokens, density, themes, states and mobile layout;
+  axe and jsx-a11y are future proposals requiring installation approval. Screen-reader,
+  actual zoom/reflow, cross-browser and comprehensive touch-target validation pending.
+  Focus recovery when resize hides an active element must be defined before final UI.
+- Next action: wait for owner review. Direction approval alone does not authorize
+  the definitive interface, TASK-001..TASK-006 or phase advancement.

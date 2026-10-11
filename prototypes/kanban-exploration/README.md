@@ -104,6 +104,12 @@ contrast. `screenshots/verification.json` records results. These checks are scop
 to exploratory previews, not feature acceptance tests or complete WCAG validation.
 
 Human review still covers identity, density, scan order, type quality, responsive
-comfort and the usefulness of the interaction patterns. No direction, feature or
-phase can be approved by these checks. Wait for the owner choice before defining
-the Design System or implementing the definitive UI.
+comfort and the usefulness of the interaction patterns. Automated checks cannot
+approve a direction, feature or phase.
+
+## Follow-up decision — 2026-10-11
+
+The owner chose Estúdio Editorial. The original three alternatives remain here
+as exploration history. Refinements are isolated in `editorial-refinement/` and
+proposed documentation is in `docs/design-system.md` and `docs/ux-guidelines.md`.
+Tokens, responsive behavior and definitive implementation still await owner review.

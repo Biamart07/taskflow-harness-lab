@@ -1,0 +1,843 @@
+{
+  "fixtureChecks": 20,
+  "layoutChecks": 24,
+  "keyboardChecks": 26,
+  "stateChecks": 20,
+  "scenarioChecks": 20,
+  "galleryChecks": 10,
+  "contrast": [
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "text",
+      "foreground": "rgb(48, 37, 60)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 4.5,
+      "ratio": 13.175735586600675
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "muted",
+      "foreground": "rgb(109, 92, 116)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 4.5,
+      "ratio": 5.5858831707592165
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "title",
+      "foreground": "rgb(48, 37, 60)",
+      "background": "rgb(255, 253, 250)",
+      "minimum": 4.5,
+      "ratio": 14.209414592619229
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "description",
+      "foreground": "rgb(109, 92, 116)",
+      "background": "rgb(255, 253, 250)",
+      "minimum": 4.5,
+      "ratio": 6.024113744356804
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "control",
+      "foreground": "rgb(145, 124, 153)",
+      "background": "rgb(255, 253, 250)",
+      "minimum": 3,
+      "ratio": 3.728605060518794
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "focus on surface",
+      "foreground": "rgb(112, 64, 160)",
+      "background": "rgb(255, 253, 250)",
+      "minimum": 3,
+      "ratio": 7.059078471530302
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "focus on canvas",
+      "foreground": "rgb(112, 64, 160)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 3,
+      "ratio": 6.545558286001436
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "primary",
+      "foreground": "rgb(255, 255, 255)",
+      "background": "rgb(112, 64, 160)",
+      "minimum": 4.5,
+      "ratio": 7.167430430694315
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "Alta",
+      "foreground": "rgb(153, 52, 40)",
+      "background": "rgb(253, 236, 232)",
+      "minimum": 4.5,
+      "ratio": 6.376234684238936
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "Média",
+      "foreground": "rgb(128, 92, 13)",
+      "background": "rgb(255, 242, 211)",
+      "minimum": 4.5,
+      "ratio": 5.469223557667699
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "Baixa",
+      "foreground": "rgb(67, 91, 121)",
+      "background": "rgb(234, 240, 248)",
+      "minimum": 4.5,
+      "ratio": 6.083307971710544
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "Alta",
+      "foreground": "rgb(153, 52, 40)",
+      "background": "rgb(253, 236, 232)",
+      "minimum": 4.5,
+      "ratio": 6.376234684238936
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "Média",
+      "foreground": "rgb(128, 92, 13)",
+      "background": "rgb(255, 242, 211)",
+      "minimum": 4.5,
+      "ratio": 5.469223557667699
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "Baixa",
+      "foreground": "rgb(67, 91, 121)",
+      "background": "rgb(234, 240, 248)",
+      "minimum": 4.5,
+      "ratio": 6.083307971710544
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "status symbol",
+      "foreground": "rgb(109, 92, 116)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 3,
+      "ratio": 5.5858831707592165
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "status symbol",
+      "foreground": "rgb(112, 64, 160)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 3,
+      "ratio": 6.545558286001436
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "status symbol",
+      "foreground": "rgb(52, 98, 77)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 3,
+      "ratio": 6.39212151613964
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "selected title",
+      "foreground": "rgb(48, 37, 60)",
+      "background": "rgb(239, 229, 244)",
+      "minimum": 4.5,
+      "ratio": 11.805970148996153
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "selected description",
+      "foreground": "rgb(109, 92, 116)",
+      "background": "rgb(239, 229, 244)",
+      "minimum": 4.5,
+      "ratio": 5.00516798749583
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "selected marker",
+      "foreground": "rgb(112, 64, 160)",
+      "background": "rgb(239, 229, 244)",
+      "minimum": 4.5,
+      "ratio": 5.8650741148475545
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "error text",
+      "foreground": "rgb(153, 52, 40)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 4.5,
+      "ratio": 6.667586547455026
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "error border",
+      "foreground": "rgb(153, 52, 40)",
+      "background": "rgb(255, 253, 250)",
+      "minimum": 3,
+      "ratio": 7.190680244168635
+    },
+    {
+      "layout": "stacked",
+      "theme": "Claro",
+      "name": "disabled label (project target)",
+      "foreground": "rgb(109, 92, 116)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 4.5,
+      "ratio": 5.5858831707592165
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "text",
+      "foreground": "rgb(246, 237, 249)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 4.5,
+      "ratio": 14.78584738298846
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "muted",
+      "foreground": "rgb(200, 182, 209)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 4.5,
+      "ratio": 8.893727599631877
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "title",
+      "foreground": "rgb(246, 237, 249)",
+      "background": "rgb(45, 36, 55)",
+      "minimum": 4.5,
+      "ratio": 12.966113924520409
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "description",
+      "foreground": "rgb(200, 182, 209)",
+      "background": "rgb(45, 36, 55)",
+      "minimum": 4.5,
+      "ratio": 7.7991529523802585
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "control",
+      "foreground": "rgb(168, 139, 188)",
+      "background": "rgb(45, 36, 55)",
+      "minimum": 3,
+      "ratio": 4.992040861251299
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "focus on surface",
+      "foreground": "rgb(213, 178, 241)",
+      "background": "rgb(45, 36, 55)",
+      "minimum": 3,
+      "ratio": 8.080894481640389
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "focus on canvas",
+      "foreground": "rgb(213, 178, 241)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 3,
+      "ratio": 9.215010235072253
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "primary",
+      "foreground": "rgb(41, 26, 53)",
+      "background": "rgb(213, 178, 241)",
+      "minimum": 4.5,
+      "ratio": 8.865873699369669
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "Alta",
+      "foreground": "rgb(253, 185, 164)",
+      "background": "rgb(74, 42, 36)",
+      "minimum": 4.5,
+      "ratio": 7.678086927733941
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "Média",
+      "foreground": "rgb(239, 210, 146)",
+      "background": "rgb(64, 53, 28)",
+      "minimum": 4.5,
+      "ratio": 8.201713749196864
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "Baixa",
+      "foreground": "rgb(175, 199, 231)",
+      "background": "rgb(38, 53, 75)",
+      "minimum": 4.5,
+      "ratio": 7.173205461633642
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "Alta",
+      "foreground": "rgb(253, 185, 164)",
+      "background": "rgb(74, 42, 36)",
+      "minimum": 4.5,
+      "ratio": 7.678086927733941
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "Média",
+      "foreground": "rgb(239, 210, 146)",
+      "background": "rgb(64, 53, 28)",
+      "minimum": 4.5,
+      "ratio": 8.201713749196864
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "Baixa",
+      "foreground": "rgb(175, 199, 231)",
+      "background": "rgb(38, 53, 75)",
+      "minimum": 4.5,
+      "ratio": 7.173205461633642
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "status symbol",
+      "foreground": "rgb(200, 182, 209)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 3,
+      "ratio": 8.893727599631877
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "status symbol",
+      "foreground": "rgb(213, 178, 241)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 3,
+      "ratio": 9.215010235072253
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "status symbol",
+      "foreground": "rgb(168, 215, 187)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 3,
+      "ratio": 10.528973874504272
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "selected title",
+      "foreground": "rgb(246, 237, 249)",
+      "background": "rgb(69, 52, 78)",
+      "minimum": 4.5,
+      "ratio": 9.923230783224167
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "selected description",
+      "foreground": "rgb(200, 182, 209)",
+      "background": "rgb(69, 52, 78)",
+      "minimum": 4.5,
+      "ratio": 5.968850428945775
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "selected marker",
+      "foreground": "rgb(213, 178, 241)",
+      "background": "rgb(69, 52, 78)",
+      "minimum": 4.5,
+      "ratio": 6.184472953346059
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "error text",
+      "foreground": "rgb(253, 185, 164)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 4.5,
+      "ratio": 10.166939262747508
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "error border",
+      "foreground": "rgb(253, 185, 164)",
+      "background": "rgb(45, 36, 55)",
+      "minimum": 3,
+      "ratio": 8.915667078785958
+    },
+    {
+      "layout": "stacked",
+      "theme": "Escuro",
+      "name": "disabled label (project target)",
+      "foreground": "rgb(200, 182, 209)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 4.5,
+      "ratio": 8.893727599631877
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "text",
+      "foreground": "rgb(48, 37, 60)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 4.5,
+      "ratio": 13.175735586600675
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "muted",
+      "foreground": "rgb(109, 92, 116)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 4.5,
+      "ratio": 5.5858831707592165
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "title",
+      "foreground": "rgb(48, 37, 60)",
+      "background": "rgb(255, 253, 250)",
+      "minimum": 4.5,
+      "ratio": 14.209414592619229
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "description",
+      "foreground": "rgb(109, 92, 116)",
+      "background": "rgb(255, 253, 250)",
+      "minimum": 4.5,
+      "ratio": 6.024113744356804
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "control",
+      "foreground": "rgb(145, 124, 153)",
+      "background": "rgb(255, 253, 250)",
+      "minimum": 3,
+      "ratio": 3.728605060518794
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "focus on surface",
+      "foreground": "rgb(112, 64, 160)",
+      "background": "rgb(255, 253, 250)",
+      "minimum": 3,
+      "ratio": 7.059078471530302
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "focus on canvas",
+      "foreground": "rgb(112, 64, 160)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 3,
+      "ratio": 6.545558286001436
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "primary",
+      "foreground": "rgb(255, 255, 255)",
+      "background": "rgb(112, 64, 160)",
+      "minimum": 4.5,
+      "ratio": 7.167430430694315
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "Alta",
+      "foreground": "rgb(153, 52, 40)",
+      "background": "rgb(253, 236, 232)",
+      "minimum": 4.5,
+      "ratio": 6.376234684238936
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "Média",
+      "foreground": "rgb(128, 92, 13)",
+      "background": "rgb(255, 242, 211)",
+      "minimum": 4.5,
+      "ratio": 5.469223557667699
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "Baixa",
+      "foreground": "rgb(67, 91, 121)",
+      "background": "rgb(234, 240, 248)",
+      "minimum": 4.5,
+      "ratio": 6.083307971710544
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "Alta",
+      "foreground": "rgb(153, 52, 40)",
+      "background": "rgb(253, 236, 232)",
+      "minimum": 4.5,
+      "ratio": 6.376234684238936
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "Média",
+      "foreground": "rgb(128, 92, 13)",
+      "background": "rgb(255, 242, 211)",
+      "minimum": 4.5,
+      "ratio": 5.469223557667699
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "Baixa",
+      "foreground": "rgb(67, 91, 121)",
+      "background": "rgb(234, 240, 248)",
+      "minimum": 4.5,
+      "ratio": 6.083307971710544
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "status symbol",
+      "foreground": "rgb(109, 92, 116)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 3,
+      "ratio": 5.5858831707592165
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "status symbol",
+      "foreground": "rgb(112, 64, 160)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 3,
+      "ratio": 6.545558286001436
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "status symbol",
+      "foreground": "rgb(52, 98, 77)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 3,
+      "ratio": 6.39212151613964
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "selected title",
+      "foreground": "rgb(48, 37, 60)",
+      "background": "rgb(239, 229, 244)",
+      "minimum": 4.5,
+      "ratio": 11.805970148996153
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "selected description",
+      "foreground": "rgb(109, 92, 116)",
+      "background": "rgb(239, 229, 244)",
+      "minimum": 4.5,
+      "ratio": 5.00516798749583
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "selected marker",
+      "foreground": "rgb(112, 64, 160)",
+      "background": "rgb(239, 229, 244)",
+      "minimum": 4.5,
+      "ratio": 5.8650741148475545
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "error text",
+      "foreground": "rgb(153, 52, 40)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 4.5,
+      "ratio": 6.667586547455026
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "error border",
+      "foreground": "rgb(153, 52, 40)",
+      "background": "rgb(255, 253, 250)",
+      "minimum": 3,
+      "ratio": 7.190680244168635
+    },
+    {
+      "layout": "tabs",
+      "theme": "Claro",
+      "name": "disabled label (project target)",
+      "foreground": "rgb(109, 92, 116)",
+      "background": "rgb(248, 244, 239)",
+      "minimum": 4.5,
+      "ratio": 5.5858831707592165
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "text",
+      "foreground": "rgb(246, 237, 249)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 4.5,
+      "ratio": 14.78584738298846
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "muted",
+      "foreground": "rgb(200, 182, 209)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 4.5,
+      "ratio": 8.893727599631877
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "title",
+      "foreground": "rgb(246, 237, 249)",
+      "background": "rgb(45, 36, 55)",
+      "minimum": 4.5,
+      "ratio": 12.966113924520409
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "description",
+      "foreground": "rgb(200, 182, 209)",
+      "background": "rgb(45, 36, 55)",
+      "minimum": 4.5,
+      "ratio": 7.7991529523802585
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "control",
+      "foreground": "rgb(168, 139, 188)",
+      "background": "rgb(45, 36, 55)",
+      "minimum": 3,
+      "ratio": 4.992040861251299
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "focus on surface",
+      "foreground": "rgb(213, 178, 241)",
+      "background": "rgb(45, 36, 55)",
+      "minimum": 3,
+      "ratio": 8.080894481640389
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "focus on canvas",
+      "foreground": "rgb(213, 178, 241)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 3,
+      "ratio": 9.215010235072253
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "primary",
+      "foreground": "rgb(41, 26, 53)",
+      "background": "rgb(213, 178, 241)",
+      "minimum": 4.5,
+      "ratio": 8.865873699369669
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "Alta",
+      "foreground": "rgb(253, 185, 164)",
+      "background": "rgb(74, 42, 36)",
+      "minimum": 4.5,
+      "ratio": 7.678086927733941
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "Média",
+      "foreground": "rgb(239, 210, 146)",
+      "background": "rgb(64, 53, 28)",
+      "minimum": 4.5,
+      "ratio": 8.201713749196864
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "Baixa",
+      "foreground": "rgb(175, 199, 231)",
+      "background": "rgb(38, 53, 75)",
+      "minimum": 4.5,
+      "ratio": 7.173205461633642
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "Alta",
+      "foreground": "rgb(253, 185, 164)",
+      "background": "rgb(74, 42, 36)",
+      "minimum": 4.5,
+      "ratio": 7.678086927733941
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "Média",
+      "foreground": "rgb(239, 210, 146)",
+      "background": "rgb(64, 53, 28)",
+      "minimum": 4.5,
+      "ratio": 8.201713749196864
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "Baixa",
+      "foreground": "rgb(175, 199, 231)",
+      "background": "rgb(38, 53, 75)",
+      "minimum": 4.5,
+      "ratio": 7.173205461633642
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "status symbol",
+      "foreground": "rgb(200, 182, 209)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 3,
+      "ratio": 8.893727599631877
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "status symbol",
+      "foreground": "rgb(213, 178, 241)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 3,
+      "ratio": 9.215010235072253
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "status symbol",
+      "foreground": "rgb(168, 215, 187)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 3,
+      "ratio": 10.528973874504272
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "selected title",
+      "foreground": "rgb(246, 237, 249)",
+      "background": "rgb(69, 52, 78)",
+      "minimum": 4.5,
+      "ratio": 9.923230783224167
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "selected description",
+      "foreground": "rgb(200, 182, 209)",
+      "background": "rgb(69, 52, 78)",
+      "minimum": 4.5,
+      "ratio": 5.968850428945775
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "selected marker",
+      "foreground": "rgb(213, 178, 241)",
+      "background": "rgb(69, 52, 78)",
+      "minimum": 4.5,
+      "ratio": 6.184472953346059
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "error text",
+      "foreground": "rgb(253, 185, 164)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 4.5,
+      "ratio": 10.166939262747508
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "error border",
+      "foreground": "rgb(253, 185, 164)",
+      "background": "rgb(45, 36, 55)",
+      "minimum": 3,
+      "ratio": 8.915667078785958
+    },
+    {
+      "layout": "tabs",
+      "theme": "Escuro",
+      "name": "disabled label (project target)",
+      "foreground": "rgb(200, 182, 209)",
+      "background": "rgb(33, 26, 41)",
+      "minimum": 4.5,
+      "ratio": 8.893727599631877
+    }
+  ],
+  "fonts": {
+    "family": "\"DM Sans\", system-ui, sans-serif",
+    "dmSansLoaded": true
+  },
+  "errors": []
+}

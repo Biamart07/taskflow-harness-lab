@@ -1,0 +1,184 @@
+<div id="editorial-preview-controls" class="viz-controls" hidden>
+  <label class="form-label">Tema <select id="editorial-theme" class="form-select"><option>Sistema</option><option>Claro</option><option>Escuro</option></select></label>
+  <label class="form-label">Cenário <select id="editorial-scenario" class="form-select"><option>Quadro completo</option><option>Coluna vazia</option><option>Quadro vazio</option><option>Sem resultados</option><option>Carregamento</option><option>Erro</option></select></label>
+  <label class="form-label">Visualização <select id="editorial-view" class="form-select"><option>Dashboard</option><option>Estados dos componentes</option></select></label>
+</div>
+<div id="editorial-refinement" class="viz-carousel" aria-label="Estúdio Editorial: alternativas responsivas" data-previous-label="Anterior" data-next-label="Próxima">
+  <section data-variant="Colunas empilhadas"><div class="ed-window" data-layout="stacked"></div></section>
+  <section data-variant="Navegação por abas" hidden><div class="ed-window" data-layout="tabs"></div></section>
+</div>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+#editorial-refinement {
+  --ed-bg:light-dark(#F8F4EF,#211A29); --ed-surface:light-dark(#FFFDFA,#2D2437);
+  --ed-ink:light-dark(#30253C,#F6EDF9); --ed-muted:light-dark(#6D5C74,#C8B6D1);
+  --ed-accent:light-dark(#7040A0,#D5B2F1); --ed-on-accent:light-dark(#FFFFFF,#291A35);
+  --ed-line:light-dark(#E4DAD0,#55445F); --ed-control:light-dark(#917C99,#A88BBC);
+  --ed-soft:light-dark(#EFE5F4,#45344E); --ed-shadow:light-dark(#30253C12,#00000038);
+  --ed-neutral:light-dark(#6D5C74,#C8B6D1); --ed-done:light-dark(#34624D,#A8D7BB);
+  --ed-error:light-dark(#993428,#FDB9A4); --ed-error-bg:light-dark(#FDECE8,#4A2A24);
+  --ed-medium:light-dark(#805C0D,#EFD292); --ed-medium-bg:light-dark(#FFF2D3,#40351C);
+  --ed-low:light-dark(#435B79,#AFC7E7); --ed-low-bg:light-dark(#EAF0F8,#26354B);
+}
+#editorial-refinement > section {min-height:1060px}
+#editorial-refinement .ed-window {font:400 16px/1.5 'DM Sans',system-ui,sans-serif; background:var(--ed-bg);color:var(--ed-ink);min-height:900px; padding:0 40px 36px}
+#editorial-refinement .ed-window * {box-sizing:border-box; min-width:0}
+#editorial-refinement .ed-window [hidden] {display:none!important}
+#editorial-refinement .ed-top {display:flex;align-items:center;justify-content:space-between;gap:24px; border-bottom:1px solid var(--ed-line);padding:24px 0}
+#editorial-refinement .ed-brand {font-size:22px;font-weight:700;letter-spacing:-.6px}
+#editorial-refinement .ed-nav {display:flex;gap:24px;align-items:center}
+#editorial-refinement .ed-nav span {color:var(--ed-muted);font-size:14px}
+#editorial-refinement button,#editorial-refinement input,#editorial-refinement select {font:inherit;color:inherit}
+#editorial-refinement button {cursor:inherit}
+#editorial-refinement .ed-button {min-height:44px; padding:10px 16px;border:1px solid var(--ed-control);border-radius:14px;background:var(--ed-surface);font-weight:500}
+#editorial-refinement .ed-button:hover:not(:disabled) {background:var(--ed-soft)}
+#editorial-refinement .ed-primary {background:var(--ed-accent);color:var(--ed-on-accent);border-color:var(--ed-accent)}
+#editorial-refinement .ed-primary:hover:not(:disabled) {background:var(--ed-accent);box-shadow:0 4px 12px var(--ed-shadow)}
+#editorial-refinement :is(button,input,select):focus-visible {outline:3px solid var(--ed-accent);outline-offset:3px}
+#editorial-refinement button:disabled {color:var(--ed-muted);background:var(--ed-bg);border-color:var(--ed-line);cursor:not-allowed}
+#editorial-refinement .ed-nav .ed-button {border:0;background:var(--ed-soft);color:var(--ed-accent)}
+#editorial-refinement .ed-hero {display:flex;gap:24px;align-items:end;justify-content:space-between;padding:38px 0 24px}
+#editorial-refinement .ed-eyebrow {color:var(--ed-muted);font-size:13px;margin:0 0 6px;letter-spacing:.6px}
+#editorial-refinement h1 {font:500 42px/1.12 'DM Sans',system-ui,sans-serif;letter-spacing:-1.4px;margin:0 0 12px}
+#editorial-refinement .ed-subtitle {color:var(--ed-muted);margin:0}
+#editorial-refinement .ed-tools {display:flex;gap:12px;align-items:end;margin-bottom:28px}
+#editorial-refinement .ed-field {display:grid;gap:6px;color:var(--ed-muted);font-size:13px}
+#editorial-refinement .ed-search {flex:1}
+#editorial-refinement input,#editorial-refinement select {min-height:44px;border:1px solid var(--ed-control);border-radius:14px;background:var(--ed-surface);color:var(--ed-ink);padding:10px 14px;font-size:16px;max-width:100%}
+#editorial-refinement input::placeholder {color:var(--ed-muted);opacity:1}
+#editorial-refinement .ed-board {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
+#editorial-refinement .ed-column h2 {font-size:16px;font-weight:600;display:flex;gap:10px;align-items:center;margin:0 0 16px}
+#editorial-refinement .ed-count {margin-left:auto;color:var(--ed-muted);font-size:13px;background:var(--ed-surface);padding:2px 9px;border-radius:8px}
+#editorial-refinement .ed-indicator {font-size:18px;line-height:1;color:var(--ed-neutral)}
+#editorial-refinement [data-column="1"] .ed-indicator {color:var(--ed-accent)}
+#editorial-refinement [data-column="2"] .ed-indicator {color:var(--ed-done)}
+#editorial-refinement .ed-list {display:grid;gap:12px}
+#editorial-refinement .ed-card {background:var(--ed-surface);border:1px solid var(--ed-line);border-radius:18px;overflow:visible}
+#editorial-refinement .ed-card-button {text-align:left;width:100%;background:transparent;border:0;padding:18px;border-radius:17px;display:grid;gap:12px}
+#editorial-refinement .ed-card:has(.ed-card-button:hover),#editorial-refinement .ed-card[data-state="hover"] {border-color:var(--ed-control);box-shadow:0 5px 16px var(--ed-shadow)}
+#editorial-refinement .ed-card:has([aria-pressed="true"]) {border:2px solid var(--ed-accent);background:var(--ed-soft)}
+#editorial-refinement .ed-card:has([aria-pressed="true"]) .ed-card-button {padding:17px}
+#editorial-refinement .ed-card[data-state="focus"] .ed-card-button {outline:3px solid var(--ed-accent);outline-offset:3px}
+#editorial-refinement .ed-title {font-size:17px;font-weight:500;line-height:1.4;overflow-wrap:anywhere}
+#editorial-refinement .ed-description {font-size:14px;line-height:1.5;color:var(--ed-muted)}
+#editorial-refinement .ed-meta {display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px}
+#editorial-refinement .ed-priority {padding:3px 8px;border-radius:8px;background:var(--ed-low-bg);color:var(--ed-low)}
+#editorial-refinement [data-priority="Alta"] {background:var(--ed-error-bg);color:var(--ed-error)}
+#editorial-refinement [data-priority="Média"] {background:var(--ed-medium-bg);color:var(--ed-medium)}
+#editorial-refinement .ed-date {color:var(--ed-muted)}
+#editorial-refinement .ed-id {color:var(--ed-muted);margin-left:auto;font-size:11px}
+#editorial-refinement .ed-selected {color:var(--ed-accent);font-size:12px;font-weight:600}
+#editorial-refinement .ed-empty {padding:24px 18px;border:1px dashed var(--ed-control);border-radius:18px;color:var(--ed-muted);font-size:14px}
+#editorial-refinement .ed-empty strong {display:block;color:var(--ed-ink);font-weight:500;margin-bottom:6px}
+#editorial-refinement .ed-notice {background:var(--ed-error-bg);color:var(--ed-error);border:1px solid var(--ed-error);border-radius:18px;padding:20px;margin-bottom:24px}
+#editorial-refinement .ed-notice p {margin:6px 0 0}
+#editorial-refinement .ed-tabs {display:none}
+#editorial-refinement .ed-showcase h2 {font-size:22px;font-weight:500;margin:0 0 20px}
+#editorial-refinement .ed-samples {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+#editorial-refinement .ed-sample-label {font-size:13px;color:var(--ed-muted);margin:0 0 12px}
+#editorial-refinement .ed-invalid {border-color:var(--ed-error)}
+#editorial-refinement .ed-error-text {color:var(--ed-error);font-size:14px;margin:8px 0}
+#editorial-refinement .ed-disabled-help {font-size:14px;color:var(--ed-muted);margin:10px 0}
+#editorial-refinement .ed-loading {color:var(--ed-muted);padding:18px;border-radius:18px;border:1px solid var(--ed-line);background:var(--ed-surface)}
+@media(max-width:900px) {
+ #editorial-refinement .ed-window {padding:0 24px 28px}
+ #editorial-refinement .ed-board {gap:16px}
+ #editorial-refinement .ed-card-button {padding:14px}
+ #editorial-refinement .ed-card:has([aria-pressed="true"]) .ed-card-button {padding:13px}
+}
+@media(max-width:700px) {
+ #editorial-refinement > section {min-height:1650px}
+ #editorial-refinement .ed-window {padding:0 18px 28px;min-height:850px}
+ #editorial-refinement .ed-top {padding:20px 0;gap:12px}
+ #editorial-refinement .ed-brand {font-size:20px}
+ #editorial-refinement .ed-nav {gap:8px}
+ #editorial-refinement .ed-nav span {display:none}
+ #editorial-refinement .ed-hero {padding:28px 0 24px;display:block}
+ #editorial-refinement h1 {font-size:34px;letter-spacing:-1px}
+ #editorial-refinement .ed-hero .ed-button {margin-top:20px;width:100%}
+ #editorial-refinement .ed-tools {flex-wrap:wrap;gap:14px;margin-bottom:28px}
+ #editorial-refinement .ed-search {flex-basis:100%}
+ #editorial-refinement .ed-tools .ed-field {width:100%}
+ #editorial-refinement .ed-board,#editorial-refinement .ed-samples {grid-template-columns:1fr;gap:28px}
+ #editorial-refinement .ed-card-button {padding:18px}
+ #editorial-refinement .ed-card:has([aria-pressed="true"]) .ed-card-button {padding:17px}
+ #editorial-refinement .ed-tabs {display:flex;gap:6px;margin-bottom:24px}
+ #editorial-refinement .ed-tab {flex:1;min-height:52px;border:1px solid var(--ed-control);border-radius:12px;background:var(--ed-surface);font-size:12px;padding:8px 4px;line-height:1.3}
+ #editorial-refinement .ed-tab[aria-selected="true"] {background:var(--ed-soft);border:2px solid var(--ed-accent);font-weight:600;color:var(--ed-accent)}
+ #editorial-refinement .ed-tab-count {display:block;font-size:12px;margin-top:4px}
+}
+</style>
+<script>
+(() => {
+ const root=document.getElementById('editorial-refinement');
+ const tasks=Object.freeze([
+  {id:'EX-01',title:'Planejar a semana',priority:'Alta',column:0,description:'Escolher três entregas que merecem atenção.',deadline:'14 out 2026'},
+  {id:'EX-02',title:'Revisar a proposta de apresentação e alinhar os próximos passos para a entrega do projeto',priority:'Média',column:0,description:'',deadline:'16 out 2026'},
+  {id:'EX-03',title:'Organizar referências',priority:'Baixa',column:0,description:'',deadline:''},
+  {id:'EX-04',title:'Preparar apresentação',priority:'Alta',column:1,description:'Contar o processo e destacar as decisões.',deadline:'15 out 2026'},
+  {id:'EX-05',title:'Revisar os textos do projeto para melhorar clareza, consistência e acessibilidade',priority:'Média',column:1,description:'',deadline:''},
+  {id:'EX-06',title:'Definir objetivo',priority:'Baixa',column:2,description:'',deadline:''}
+ ].map(Object.freeze));
+ const columns=['A fazer','Em andamento','Concluído'],symbols=['○','◐','✓'];
+ const state={theme:'Sistema',scenario:'Quadro completo',view:'Dashboard'};
+ const escape=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
+ function card(task,sample='') {
+  return `<article class="ed-card" data-task="${task.id}" data-state="${sample}"><button type="button" class="ed-card-button" aria-pressed="${sample==='selected'}"><span class="ed-title">${escape(task.title)}</span>${task.description?`<span class="ed-description">${escape(task.description)}</span>`:''}<span class="ed-meta"><span class="ed-priority" data-priority="${task.priority}">${{Alta:'↑',Média:'—',Baixa:'↓'}[task.priority]} ${task.priority}</span>${task.deadline?`<span class="ed-date">Prazo: ${task.deadline}</span>`:''}<span class="ed-id">${task.id}</span></span><span class="ed-selected" ${sample==='selected'?'':'hidden'}>✓ Selecionada</span></button></article>`;
+ }
+ for(const win of root.querySelectorAll('.ed-window')) {
+  const key=win.dataset.layout;
+  win.innerHTML=`<header class="ed-top"><span class="ed-brand">taskflow<span style="color:var(--ed-accent)">.</span></span><nav class="ed-nav" aria-label="Navegação principal"><button type="button" class="ed-button" aria-current="page">Meu quadro</button><span>Espaço pessoal</span></nav></header><div class="ed-hero"><div><p class="ed-eyebrow">SEU ESPAÇO PARA FAZER ACONTECER</p><h1>Ideias em movimento.</h1><p class="ed-subtitle">Um passo de cada vez, com clareza.</p></div><button type="button" class="ed-button ed-primary" aria-describedby="${key}-illustrative">+ Nova tarefa</button></div><p id="${key}-illustrative" class="sr-only">Botão ilustrativo; criação indisponível neste protótipo.</p><div class="ed-dashboard"><div class="ed-tools"><label class="ed-field ed-search">Buscar no quadro<input type="search" placeholder="Buscar tarefas" readonly aria-label="Buscar tarefas — amostra visual"></label><label class="ed-field">Prioridade<select aria-label="Prioridade — amostra visual"><option>Todas as prioridades</option><option>Alta</option><option>Média</option><option>Baixa</option></select></label></div><div class="ed-status"></div><div class="ed-tabs" role="tablist" aria-label="Colunas do quadro" ${key==='stacked'?'hidden':''}>${columns.map((name,i)=>`<button type="button" class="ed-tab" role="tab" id="${key}-tab-${i}" aria-controls="${key}-panel-${i}" aria-selected="${i===0}" tabindex="${i===0?0:-1}" data-tab="${i}">${name}<span class="ed-tab-count"></span></button>`).join('')}</div><div class="ed-board">${columns.map((name,i)=>`<section class="ed-column" data-column="${i}" id="${key}-panel-${i}" aria-labelledby="${key}-heading-${i}"><h2 id="${key}-heading-${i}"><span class="ed-indicator" aria-hidden="true">${symbols[i]}</span>${name}<span class="ed-count"></span></h2><div class="ed-list"></div></section>`).join('')}</div></div><section class="ed-showcase" hidden><h2>Estados dos componentes</h2><div class="ed-samples"><div><p class="ed-sample-label">Padrão</p>${card(tasks[0],'normal')}</div><div><p class="ed-sample-label">Hover · amostra visual</p>${card(tasks[0],'hover')}</div><div><p class="ed-sample-label">Foco · amostra visual</p>${card(tasks[0],'focus')}</div><div><p class="ed-sample-label">Selecionado</p>${card(tasks[0],'selected')}</div><div><p class="ed-sample-label">Erro · campo ilustrativo</p><label class="ed-field">Título<input class="ed-invalid" readonly value="" aria-invalid="true" aria-describedby="${key}-error"></label><p class="ed-error-text" id="${key}-error">Informe um título para continuar.</p></div><div><p class="ed-sample-label">Desabilitado</p><button type="button" class="ed-button" disabled>Salvar tarefa</button><p class="ed-disabled-help">Disponível após preencher o título.</p></div></div></section><p class="sr-only ed-live" aria-live="polite"></p>`;
+  win.dataset.active='0';
+ }
+ const mobile=matchMedia('(max-width:700px)');
+ function syncPanels(win) {
+  const tabs=win.dataset.layout==='tabs'&&mobile.matches&&state.view==='Dashboard';
+  win.querySelectorAll('.ed-column').forEach((panel,i)=>{
+   panel.hidden=tabs&&i!==Number(win.dataset.active);
+   if(tabs) {panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',`tabs-tab-${i}`);if(!panel.querySelector('.ed-card-button'))panel.tabIndex=0;else panel.removeAttribute('tabindex');}
+   else {panel.removeAttribute('role');panel.removeAttribute('tabindex');panel.setAttribute('aria-labelledby',`${win.dataset.layout}-heading-${i}`);}
+  });
+ }
+ function render() {
+  root.style.colorScheme=state.theme==='Claro'?'light':state.theme==='Escuro'?'dark':'light dark';
+  const visible=state.scenario==='Quadro completo'?tasks:state.scenario==='Coluna vazia'?tasks.filter(t=>t.column!==2):[];
+  root.querySelectorAll('.ed-window').forEach(win=>{
+   win.querySelector('.ed-dashboard').hidden=state.view!=='Dashboard';win.querySelector('.ed-showcase').hidden=state.view==='Dashboard';
+   win.querySelector('.ed-status').innerHTML=state.scenario==='Erro'?'<div class="ed-notice" role="alert"><strong>Não foi possível carregar o quadro.</strong><p>Suas tarefas não foram alteradas. Tente novamente em instantes.</p></div>':'';
+   win.querySelectorAll('.ed-column').forEach((panel,i)=>{
+    const items=visible.filter(t=>t.column===i);
+    panel.querySelector('.ed-count').textContent=items.length;
+    win.querySelector(`[data-tab="${i}"] .ed-tab-count`).textContent=`${items.length} ${items.length===1?'tarefa':'tarefas'}`;
+    panel.querySelector('.ed-list').innerHTML=items.length?items.map(t=>card(t)).join(''):state.scenario==='Carregamento'?'<div class="ed-loading" role="status">Carregando tarefas…</div>':state.scenario==='Erro'?'':`<div class="ed-empty"><strong>${state.scenario==='Sem resultados'?'Nenhuma tarefa encontrada':i===2&&state.scenario==='Coluna vazia'?'O próximo passo já está a caminho.':'Um novo começo.'}</strong>${state.scenario==='Sem resultados'?'Experimente outros termos ou remova os filtros.':i===2&&state.scenario==='Coluna vazia'?'As tarefas concluídas aparecerão aqui.':'Suas tarefas aparecerão aqui.'}</div>`;
+   });
+   syncPanels(win);
+  });
+ }
+ root.addEventListener('click',event=>{
+  const button=event.target.closest('.ed-card-button');
+  if(button) {const selected=button.getAttribute('aria-pressed')!=='true';button.setAttribute('aria-pressed',String(selected));button.querySelector('.ed-selected').hidden=!selected;button.closest('.ed-window').querySelector('.ed-live').textContent=selected?'Card selecionado para comparação visual.':'Seleção visual removida.';}
+  const tab=event.target.closest('.ed-tab');if(tab) activate(tab);
+ });
+ function activate(tab) {
+  const win=tab.closest('.ed-window');win.dataset.active=tab.dataset.tab;
+  win.querySelectorAll('.ed-tab').forEach(item=>{item.setAttribute('aria-selected',String(item===tab));item.tabIndex=item===tab?0:-1;});syncPanels(win);
+ }
+ root.addEventListener('keydown',event=>{
+  const tab=event.target.closest('.ed-tab');if(!tab)return;
+  const buttons=[...tab.parentElement.querySelectorAll('.ed-tab')],i=buttons.indexOf(tab);
+  const next={ArrowRight:(i+1)%3,ArrowLeft:(i+2)%3,Home:0,End:2}[event.key];
+  if(next!==undefined){event.preventDefault();activate(buttons[next]);buttons[next].focus();}
+ });
+ mobile.addEventListener('change',()=>root.querySelectorAll('.ed-window').forEach(syncPanels));render();
+ if(globalThis.Tweak) {
+  const tweak=new Tweak({container:root,onChange:render});
+  tweak.addSelect(state,'theme',{label:'Tema',options:['Sistema','Claro','Escuro']});
+  tweak.addSelect(state,'scenario',{label:'Cenário',options:['Quadro completo','Coluna vazia','Quadro vazio','Sem resultados','Carregamento','Erro']});
+  tweak.addSelect(state,'view',{label:'Visualização',options:['Dashboard','Estados dos componentes']});
+ } else {
+  document.getElementById('editorial-preview-controls').hidden=false;
+  for(const key of ['theme','scenario','view'])document.getElementById(`editorial-${key}`).addEventListener('change',event=>{state[key]=event.target.value;render();});
+ }
+ window.editorialPrototype={tasks,configure(options){Object.assign(state,options);render();},snapshot(){return {...state};}};
+})();
+</script>
