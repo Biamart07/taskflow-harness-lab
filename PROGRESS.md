@@ -31,7 +31,7 @@ Phase 4 remains not_started and is not authorized by this work.
 - No authoritative protected promotion mechanism to done exists yet; reviewer identity
   and separate approval authority remain unresolved as documented in docs/.
 - The localStorage lint restriction is not comprehensive import/boundary enforcement.
-- CI for this application foundation was not run; trusted workflows were not changed.
+- Application CI now has independent application and Chromium E2E jobs; remote results pending.
 - Phase 4 still requires explicit owner approval after Phase 3 completion.
 
 ## Verification — 2026-10-11
@@ -58,4 +58,18 @@ Scope: application foundation on dev/taskflow-app-foundation; base main 7ad602d.
 2. Within Phase 3, implement TASK-001 and real feature tests only after that review.
 3. Preserve separate feature and phase approval; do not advance to Phase 4.
 
-No merge into main or push was performed. Work stops here for owner review.
+PR #4 is open for owner review. No merge into main was performed.
+
+## PR #4 review corrections — 2026-10-11
+- Preserved the validate job exactly: same ID, workflow path and harness-only command.
+  Approval preflight depends on this identity in harness/verify-approval-request.mjs.
+- Added application job: npm ci, lint, typecheck, build and Vitest.
+- Added separate e2e job: npm ci, Chromium/system dependency installation,
+  production-build smoke test and Playwright report/trace artifacts.
+- Both jobs use Node 22 and run on PRs targeting main, pushes to main and manual dispatch.
+- Feature states, policies, approval records and phases remain unchanged.
+- Local verification: npm ci passed; npm run check passed (lint, typecheck/build,
+  1 Vitest test and 45 harness tests); Chromium E2E with CI=true passed (1 test,
+  exit code 0). validate job comparison and git diff --check passed.
+- GitHub Actions results for the correction commit: pending; not claimed passed.
+- Next step: verify the jobs on PR #4 and wait for owner review; no merge or Phase 4 work.
