@@ -62,6 +62,20 @@ jobs:
           node harness/verify-approval-request.mjs harness/features.json \
             "$FEATURE_ID" "$REVISION" "$LIVE_MAIN" "$RUNNER_TEMP/check-runs.json" "$RUNNER_TEMP/trusted-runs.json"
 
+      - name: Require independently passing feature tests
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          FEATURE_ID: ${{ inputs.feature_id }}
+          REVISION: ${{ steps.identify.outputs.head }}
+        run: |
+          curl --fail --silent --show-error --location \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/actions/workflows/taskflow-feature-tests.yml/runs?head_sha=$REVISION&per_page=100" > "$RUNNER_TEMP/feature-runs.json"
+          node harness/feature-quality-gate.mjs harness/feature-verification-policy.json \
+            "$FEATURE_ID" "$REVISION" "$RUNNER_TEMP/check-runs.json" "$RUNNER_TEMP/feature-runs.json"
+
   owner-approval:
     name: Await independent approval
     needs: preflight
