@@ -49,3 +49,27 @@ A branch principal é `main`.
 ## Licença
 
 Este projeto utiliza a licença [MIT](LICENSE).
+
+## Executar a estrutura da aplicação
+
+Requer Node.js 22.13 ou superior na série 22 e npm. A versão testada é 22.19.
+
+```sh
+npm ci
+npm run dev
+```
+
+- `npm run check`: lint, TypeScript, build, smoke Vitest e testes existentes do harness.
+- `npm run test:watch`: Vitest em modo interativo.
+- `npx playwright install chromium`: instala o navegador para os testes E2E.
+- `npm run test:e2e`: smoke em Chromium sobre o build de produção; inicia e encerra seu próprio servidor.
+- `npm run preview`: prévia do build já gerado.
+
+Vitest executa apenas `tests/app/`; Playwright executa `tests/e2e/`; os testes
+Node do harness continuam em `tests/*.test.mjs`. Os testes de inicialização não
+validam os critérios de TASK-001. A feature, a persistência e seus jobs dedicados
+ainda não foram implementados; as políticas de aprovação continuam pendentes.
+
+A estrutura de camadas está descrita em `docs/architecture.md`. Tailwind CSS 4
+é integrado pelo plugin oficial `@tailwindcss/vite` e pelo import em `src/styles.css`.
+O lockfile deve ser versionado para instalação reproduzível.
