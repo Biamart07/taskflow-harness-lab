@@ -20,6 +20,7 @@ jobs:
   preflight:
     name: Validate feature and revision
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     outputs:
       revision: ${{ steps.identify.outputs.head }}
     steps:
@@ -41,6 +42,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
+          FEATURE_ID: ${{ inputs.feature_id }}
           REVISION: ${{ steps.identify.outputs.head }}
         run: |
           curl --fail --silent --show-error --location \
@@ -48,7 +50,7 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/$REPO/commits/$REVISION/check-runs?per_page=100" > "$RUNNER_TEMP/check-runs.json"
           node harness/verify-approval-request.mjs harness/features.json \
-            "${{ inputs.feature_id }}" "$REVISION" "$REVISION" "$RUNNER_TEMP/check-runs.json"
+            "$FEATURE_ID" "$REVISION" "$REVISION" "$RUNNER_TEMP/check-runs.json"
 
   owner-approval:
     name: Await independent approval
