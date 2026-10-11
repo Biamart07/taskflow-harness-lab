@@ -45,3 +45,18 @@ This invariant is currently documented, not enforced. A future verifier should m
 
 ## Architecture decisions
 No implementation structure is frozen yet. Directory boundaries and interfaces should be reviewed before code generation.
+
+## Application foundation (Phase 3)
+- `src/main.tsx`: React entry point and composition root.
+- `src/app/App.tsx`: presentation-only application shell.
+- `src/features/tasks/ui/`: reserved for task components.
+- `src/features/tasks/application/`: reserved for use cases and repository interface.
+- `src/features/tasks/domain/`: reserved for task types and pure rules.
+- `src/features/tasks/infrastructure/`: reserved for repository adapters.
+
+The reserved layers contain documentation only. No task creation or persistence is
+implemented. Future UI code calls application operations, which depend on a
+repository interface; the composition root supplies the concrete adapter.
+The ESLint rules reject direct localStorage references and property access in
+app/task UI files. This is a limited static check, not a comprehensive boundary
+validator (aliases, dynamic access and import boundaries are not covered).
