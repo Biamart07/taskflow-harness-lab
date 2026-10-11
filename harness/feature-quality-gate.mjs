@@ -13,7 +13,7 @@ export function validateFeatureQuality({ featureId, revision, policy, checkRuns,
   if (!config.workflow || !config.required_check) errors.push('Incomplete feature test policy.');
   const trustedSuites = (Array.isArray(workflowRuns) ? workflowRuns : [])
     .filter(run => run.path === config.workflow && run.head_sha === revision &&
-      run.event === 'push' && run.status === 'completed' && run.conclusion === 'success')
+      run.event === 'push' && run.head_branch === 'main' && run.status === 'completed' && run.conclusion === 'success')
     .map(run => run.check_suite_id)
     .filter(id => Number.isInteger(id));
   if (!trustedSuites.length) errors.push('No successful trusted feature workflow for the requested revision.');
