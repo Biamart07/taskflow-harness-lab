@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TaskFlow — capturas da exploração de design</title>
+  <style>
+    :root{font-family:system-ui,sans-serif;color:#172A25;background:#F4F6F5;}
+    body{margin:0;padding:24px;}h1{font-size:24px;margin:0 0 12px;}
+    .controls{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0 24px;}
+    label{display:grid;gap:6px;font-size:14px;}select{font:inherit;background:#fff;color:#172A25;min-height:44px;padding:8px 12px;border:1px solid #738A80;border-radius:6px;}
+    select:focus-visible,a:focus-visible{outline:3px solid #146C58;outline-offset:3px;}
+    .sheet{max-width:1280px;margin:auto;}figure{margin:0 0 24px;min-width:0;}
+    figcaption{font-size:18px;font-weight:600;margin:8px 0 12px;}
+    img{display:block;width:100%;height:auto;}a{color:inherit;}
+    .mobile{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+    .states{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+    .states h2{grid-column:1/-1;font-size:20px;margin:12px 0 0;}
+    .states figcaption{font-size:14px;}
+    @media(max-width:700px){body{padding:16px;}.mobile,.states{grid-template-columns:1fr;}.states h2{grid-column:auto;}}
+  </style>
+</head>
+<body>
+  <h1>TaskFlow · Exploração de design</h1>
+  <p>Capturas reais de protótipos. Dados fictícios e compartilhados; nenhuma direção aprovada.</p>
+  <div class="controls">
+    <label>Tema<select id="theme"><option value="light">Claro</option><option value="dark">Escuro</option></select></label>
+    <label>Comparação<select id="view"><option value="desktop">Desktop</option><option value="mobile">Mobile</option><option value="states">Hover, foco e seleção</option><option value="empty-desktop">Coluna vazia · desktop</option><option value="empty-mobile">Coluna vazia · mobile</option></select></label>
+  </div>
+  <main class="sheet" id="sheet"></main>
+  <script>
+    const designs=[['serene','Fluxo Sereno'],['editorial','Estúdio Editorial'],['technical','Precisão Técnica']];
+    const theme=document.getElementById('theme');
+    const view=document.getElementById('view');
+    const sheet=document.getElementById('sheet');
+    function render(){
+      sheet.replaceChildren();sheet.className='sheet '+(view.value.includes('mobile')?'mobile':view.value==='states'?'states':'');
+      for(const [id,name] of designs){
+        if(view.value==='states'){const heading=document.createElement('h2');heading.textContent=name;sheet.append(heading);}
+        const shots=view.value==='states'?[['hover','Hover'],['focus','Foco por teclado'],['selected','Seleção']]:[[view.value,name]];
+        for(const [suffix,label] of shots){
+          const figure=document.createElement('figure');const caption=document.createElement('figcaption');caption.textContent=label;
+          const link=document.createElement('a');link.href='screenshots/'+id+'-'+theme.value+'-'+suffix+'.png';
+          const image=document.createElement('img');image.src=link.href;image.alt=name+' — '+theme.options[theme.selectedIndex].text+' — '+label;link.append(image);figure.append(caption,link);sheet.append(figure);
+        }
+      }
+    }
+    theme.addEventListener('change',render);view.addEventListener('change',render);render();
+  </script>
+</body>
+</html>

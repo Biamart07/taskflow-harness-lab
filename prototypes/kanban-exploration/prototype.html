@@ -1,0 +1,207 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap');
+#taskflow-design-review .tf-window { --tf-bg:light-dark(#F4F7F4,#101C18);--tf-surface:light-dark(#FFFFFF,#182B24);--tf-ink:light-dark(#152D27,#E8F2EC);--tf-muted:light-dark(#4E655E,#AEC6B8);--tf-accent:light-dark(#146C58,#75D6B0);--tf-on:light-dark(#FFFFFF,#10291F);--tf-line:light-dark(#D5E0D8,#355346);--tf-control:light-dark(#738A80,#709F89);--tf-soft:light-dark(#E4EFE9,#253E32);--tf-font:'Manrope',system-ui,sans-serif;--tf-radius:12px;--tf-pad:24px;min-height:680px;box-sizing:border-box;background:var(--tf-bg);color:var(--tf-ink);font:14px/1.55 var(--tf-font);overflow-wrap:anywhere; }
+#taskflow-design-review *,#taskflow-design-review *::before,#taskflow-design-review *::after {box-sizing:border-box;}
+#taskflow-design-review .tf-editorial {--tf-bg:light-dark(#F8F4EF,#211A29);--tf-surface:light-dark(#FFFDFA,#2D2437);--tf-ink:light-dark(#30253C,#F6EDF9);--tf-muted:light-dark(#6D5C74,#C8B6D1);--tf-accent:light-dark(#7040A0,#D5B2F1);--tf-on:light-dark(#FFFFFF,#291A35);--tf-line:light-dark(#E4DAD0,#55445F);--tf-control:light-dark(#917C99,#A88BBC);--tf-soft:light-dark(#EFE5F4,#45344E);--tf-font:'DM Sans',system-ui,sans-serif;--tf-radius:18px;}
+#taskflow-design-review .tf-technical {--tf-bg:light-dark(#F2F5FA,#0E1726);--tf-surface:light-dark(#FFFFFF,#16243A);--tf-ink:light-dark(#14243A,#EDF3FD);--tf-muted:light-dark(#4D617B,#A8BBD5);--tf-accent:light-dark(#1855B5,#8AB9FF);--tf-on:light-dark(#FFFFFF,#102643);--tf-line:light-dark(#D5DEEA,#344763);--tf-control:light-dark(#778AA5,#7696C3);--tf-soft:light-dark(#E4EDF9,#223B60);--tf-font:'IBM Plex Sans',system-ui,sans-serif;--tf-radius:6px;--tf-pad:20px;}
+#taskflow-design-review .tf-window h1,#taskflow-design-review .tf-window h2,#taskflow-design-review .tf-window h3,#taskflow-design-review .tf-window p {margin:0;}
+#taskflow-design-review .tf-window h1 {font:700 30px/1.25 var(--tf-font);letter-spacing:-.03em;}
+#taskflow-design-review .tf-window h2 {font:600 15px/1.4 var(--tf-font);}
+#taskflow-design-review .tf-window h3 {font:600 15px/1.5 var(--tf-font);}
+#taskflow-design-review .tf-window button,#taskflow-design-review .tf-window input,#taskflow-design-review .tf-window select {font:inherit;max-width:100%;}
+#taskflow-design-review .tf-window button {border:1px solid var(--tf-control);border-radius:calc(var(--tf-radius) - 4px);min-height:44px;padding:10px 14px;background:var(--tf-surface);color:var(--tf-ink);white-space:normal;}
+#taskflow-design-review .tf-window button:hover {background:var(--tf-soft);}
+#taskflow-design-review .tf-window button:focus-visible,#taskflow-design-review .tf-window input:focus-visible,#taskflow-design-review .tf-window select:focus-visible,#taskflow-design-review .tf-window summary:focus-visible {outline:3px solid var(--tf-accent);outline-offset:3px;}
+#taskflow-design-review .tf-window .tf-primary {background:var(--tf-accent);color:var(--tf-on);border-color:var(--tf-accent);font-weight:600;}
+#taskflow-design-review .tf-window .tf-primary:hover {filter:brightness(.94);background:var(--tf-accent);}
+#taskflow-design-review .tf-window .tf-quiet {color:var(--tf-muted);font-size:13px;}
+#taskflow-design-review .tf-layout {display:grid;grid-template-columns:175px minmax(0,1fr);}
+#taskflow-design-review .tf-sidebar {padding:24px 16px;background:var(--tf-surface);border-right:1px solid var(--tf-line);}
+#taskflow-design-review .tf-brand {display:flex;align-items:center;gap:10px;min-height:44px;font-size:18px;font-weight:700;letter-spacing:-.035em;}
+#taskflow-design-review .tf-mark {width:28px;height:28px;background:var(--tf-accent);color:var(--tf-on);border-radius:8px;display:grid;place-items:center;font-size:15px;font-weight:700;flex-shrink:0;}
+#taskflow-design-review .tf-sidebar nav {display:grid;gap:8px;margin-top:40px;}
+#taskflow-design-review .tf-sidebar .tf-nav-current {text-align:left;background:var(--tf-soft);border-color:transparent;color:var(--tf-accent);font-weight:600;}
+#taskflow-design-review .tf-sidebar .tf-note {margin-top:100px;color:var(--tf-muted);font-size:12px;}
+#taskflow-design-review .tf-body {padding:var(--tf-pad);min-width:0;}
+#taskflow-design-review .tf-heading {display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:12px;}
+#taskflow-design-review .tf-heading p {color:var(--tf-muted);margin-top:6px;}
+#taskflow-design-review .tf-toolbar {display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:28px 0 24px;}
+#taskflow-design-review .tf-toolbar label {display:grid;gap:5px;font-size:12px;color:var(--tf-muted);}
+#taskflow-design-review .tf-window input,#taskflow-design-review .tf-window select {min-height:44px;padding:10px 12px;border:1px solid var(--tf-control);border-radius:calc(var(--tf-radius) - 4px);background:var(--tf-surface);color:var(--tf-ink);font-size:16px;}
+#taskflow-design-review .tf-toolbar input {width:215px;}
+#taskflow-design-review .tf-count {margin-left:auto;color:var(--tf-muted);font-size:12px;padding-bottom:12px;}
+#taskflow-design-review .tf-board {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+#taskflow-design-review .tf-column {min-width:0;}
+#taskflow-design-review .tf-column-header {display:flex;gap:8px;align-items:center;justify-content:space-between;margin-bottom:16px;}
+#taskflow-design-review .tf-column-header span {color:var(--tf-muted);font-size:12px;}
+#taskflow-design-review .tf-task {background:var(--tf-surface);border:1px solid var(--tf-line);border-radius:var(--tf-radius);padding:16px;margin-bottom:12px;min-height:118px;box-shadow:0 2px 8px light-dark(#152D2708,#00000018);}
+#taskflow-design-review .tf-task small {color:var(--tf-muted);font-size:12px;}
+#taskflow-design-review .tf-task h3 {margin:8px 0 12px;}
+#taskflow-design-review .tf-status {font-size:12px;color:var(--tf-accent);display:inline-block;padding:3px 8px;background:var(--tf-soft);border-radius:5px;}
+#taskflow-design-review .tf-empty {padding:16px;border:1px dashed var(--tf-control);border-radius:var(--tf-radius);color:var(--tf-muted);font-size:13px;}
+#taskflow-design-review .tf-example {margin-top:24px;border-top:1px solid var(--tf-line);padding-top:16px;}
+#taskflow-design-review .tf-example summary {min-height:44px;padding:10px 0;color:var(--tf-accent);font-weight:600;}
+#taskflow-design-review .tf-form-sample {max-width:440px;border:1px solid var(--tf-line);background:var(--tf-surface);border-radius:var(--tf-radius);padding:20px;margin-top:12px;}
+#taskflow-design-review .tf-form-sample label {display:grid;gap:6px;margin:16px 0;color:var(--tf-ink);}
+#taskflow-design-review .tf-actions {display:flex;gap:12px;flex-wrap:wrap;justify-content:end;margin-top:20px;}
+#taskflow-design-review .tf-topbar {display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--tf-line);padding:16px 28px;}
+#taskflow-design-review .tf-topbar > span {color:var(--tf-muted);font-size:12px;}
+#taskflow-design-review .tf-editorial .tf-body {padding:24px 32px;}
+#taskflow-design-review .tf-editorial .tf-heading {align-items:end;margin-top:4px;}
+#taskflow-design-review .tf-editorial h1 {font-size:38px;max-width:500px;font-weight:500;line-height:1.2;letter-spacing:-.045em;}
+#taskflow-design-review .tf-editorial .tf-board {gap:20px;}
+#taskflow-design-review .tf-editorial .tf-task {padding:20px;box-shadow:none;border-color:var(--tf-line);min-height:140px;}
+#taskflow-design-review .tf-editorial .tf-column-header {padding-bottom:12px;border-bottom:2px solid var(--tf-control);}
+#taskflow-design-review .tf-editorial .tf-task h3 {font-size:17px;line-height:1.4;}
+#taskflow-design-review .tf-technical .tf-layout {grid-template-columns:64px minmax(0,1fr);}
+#taskflow-design-review .tf-technical .tf-sidebar {padding:16px 10px;}
+#taskflow-design-review .tf-technical .tf-brand {justify-content:center;}
+#taskflow-design-review .tf-technical .tf-sidebar nav {margin-top:20px;}
+#taskflow-design-review .tf-technical .tf-sidebar button {padding:8px;min-width:44px;}
+#taskflow-design-review .tf-technical .tf-heading h1 {font-size:25px;letter-spacing:-.01em;}
+#taskflow-design-review .tf-technical .tf-toolbar {padding:12px;background:var(--tf-surface);border:1px solid var(--tf-line);border-radius:6px;margin-top:20px;gap:10px;}
+#taskflow-design-review .tf-technical .tf-task {min-height:108px;padding:12px;box-shadow:none;border-left:3px solid var(--tf-accent);}
+#taskflow-design-review .tf-technical .tf-task small {font-family:ui-monospace,monospace;}
+#taskflow-design-review .tf-technical .tf-task h3 {margin:4px 0 8px;}
+#taskflow-design-review .tf-window input::placeholder {color:var(--tf-muted);opacity:1;}
+#taskflow-design-review > [data-variant] {min-height:1020px;}
+@media(max-width:750px) {#taskflow-design-review > [data-variant] {min-height:1060px;}#taskflow-design-review .tf-layout {grid-template-columns:1fr;}#taskflow-design-review .tf-sidebar {border-right:0;border-bottom:1px solid var(--tf-line);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;}#taskflow-design-review .tf-sidebar nav {margin:0;}#taskflow-design-review .tf-sidebar .tf-note {display:none;}#taskflow-design-review .tf-technical .tf-layout {grid-template-columns:1fr;}#taskflow-design-review .tf-technical .tf-sidebar nav {margin:0;}#taskflow-design-review .tf-window {min-height:790px;}#taskflow-design-review .tf-editorial .tf-body {padding:24px;} }
+@media(max-width:540px) {#taskflow-design-review .tf-board {grid-template-columns:1fr;}#taskflow-design-review .tf-column {margin-bottom:12px;}#taskflow-design-review .tf-window {min-height:1300px;}#taskflow-design-review .tf-heading h1,#taskflow-design-review .tf-editorial h1 {font-size:28px;}#taskflow-design-review .tf-body,#taskflow-design-review .tf-editorial .tf-body {padding:20px 16px;}#taskflow-design-review .tf-toolbar label {flex:1 1 160px;}#taskflow-design-review .tf-toolbar input {width:100%;}#taskflow-design-review .tf-count {margin-left:0;}#taskflow-design-review .tf-topbar {padding:16px;flex-wrap:wrap;}#taskflow-design-review .tf-task {min-height:0;} }
+@media(max-width:540px) {#taskflow-design-review > [data-variant] {min-height:1940px;} }
+#taskflow-design-review .tf-priority {display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;padding:3px 8px;border-radius:5px;}
+#taskflow-design-review .tf-priority[data-priority="Alta"] {color:light-dark(#993428,#FDB9A4);background:light-dark(#FDECE8,#4A2A24);}
+#taskflow-design-review .tf-priority[data-priority="Média"] {color:light-dark(#805C0D,#EFD292);background:light-dark(#FFF2D3,#40351C);}
+#taskflow-design-review .tf-priority[data-priority="Baixa"] {color:light-dark(#435B79,#AFC7E7);background:light-dark(#EAF0F8,#26354B);}
+#taskflow-design-review .tf-task {padding:0;}
+#taskflow-design-review .tf-window .tf-task-button {display:block;width:100%;height:100%;border:0;border-radius:var(--tf-radius);padding:16px;text-align:left;background:transparent;color:var(--tf-ink);}
+#taskflow-design-review .tf-task-button .tf-task-title {display:block;font-size:16px;font-weight:600;line-height:1.5;margin-bottom:18px;}
+#taskflow-design-review .tf-task-meta {display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
+#taskflow-design-review .tf-task:hover {border-color:var(--tf-control);box-shadow:0 4px 12px light-dark(#152D2710,#00000038);}
+#taskflow-design-review .tf-window .tf-task-button:hover {background:transparent;}
+#taskflow-design-review .tf-task:has(.tf-task-button[aria-pressed="true"]) {border-color:var(--tf-accent);box-shadow:0 0 0 2px var(--tf-accent);}
+#taskflow-design-review .tf-task-button[aria-pressed="true"] .tf-task-title::after {content:' · Selecionada';color:var(--tf-accent);font-weight:500;font-size:12px;}
+#taskflow-design-review .tf-editorial .tf-task {padding:0;}
+#taskflow-design-review .tf-editorial .tf-task-button {padding:20px;}
+#taskflow-design-review .tf-editorial .tf-task-title {font-size:18px;font-weight:500;line-height:1.45;}
+#taskflow-design-review .tf-technical .tf-task {padding:0;}
+#taskflow-design-review .tf-technical .tf-task-button {padding:12px;}
+#taskflow-design-review .tf-technical .tf-task-title {font-size:15px;line-height:1.4;margin-bottom:12px;}
+#taskflow-design-review .tf-column[hidden] {display:none;}
+#taskflow-design-review .tf-empty {min-height:140px;display:grid;align-content:center;gap:8px;}
+#taskflow-design-review .tf-empty strong {font-size:15px;color:var(--tf-ink);font-weight:600;}
+#taskflow-design-review .tf-empty p {font-size:13px;}
+#taskflow-design-review .tf-mobile-columns {display:none;}
+#taskflow-design-review .tf-window {min-height:740px;}
+#taskflow-design-review > [data-variant] {min-height:1060px;}
+@media(max-width:540px) {
+  #taskflow-design-review .tf-window {min-height:820px;}
+  #taskflow-design-review > [data-variant] {min-height:1260px;}
+  #taskflow-design-review .tf-mobile-columns {display:grid;gap:6px;margin-bottom:20px;color:var(--tf-muted);font-size:13px;}
+  #taskflow-design-review .tf-column:not([data-mobile-active]) {display:none;}
+  #taskflow-design-review .tf-toolbar {gap:12px;}
+  #taskflow-design-review .tf-count {padding-bottom:0;flex-basis:100%;}
+}
+</style>
+<div id="tf-local-controls" class="viz-controls" hidden>
+  <label class="form-label">Tema<select id="tf-preview-theme" class="form-select"><option>Sistema</option><option>Claro</option><option>Escuro</option></select></label>
+  <label class="form-label">Cenário fictício<select id="tf-preview-scenario" class="form-select"><option>Quadro completo</option><option>Coluna vazia</option><option>Quadro vazio</option><option>Sem resultados</option></select></label>
+  <label class="form-label">Coluna no mobile<select id="tf-preview-column" class="form-select"><option>A fazer</option><option>Em andamento</option><option>Concluído</option></select></label>
+</div>
+<div id="taskflow-design-review" class="viz-carousel" aria-label="Direções visuais para o TaskFlow" data-previous-label="Anterior" data-next-label="Próxima">
+  <section data-variant="Fluxo sereno" aria-label="Fluxo sereno">
+    <div class="tf-window tf-serene" data-design="serene">
+      <div class="tf-layout">
+        <aside class="tf-sidebar"><div class="tf-brand"><span class="tf-mark" aria-hidden="true">tf</span>TaskFlow</div><nav aria-label="Navegação ilustrativa"><button type="button" class="tf-nav-current cursor-interaction" aria-current="page">Meu quadro</button></nav><p class="tf-note">Espaço para organizar<br>o próximo passo.</p></aside>
+        <main class="tf-body"><p class="tf-quiet">FLUXO SERENO · DADOS ILUSTRATIVOS</p><div class="tf-heading"><div><h1>Meu quadro</h1><p>Do primeiro passo ao trabalho concluído.</p></div><button type="button" class="tf-primary cursor-interaction">+ Nova tarefa</button></div><div class="tf-toolbar"><label>Buscar no quadro<input type="search" placeholder="Buscar pelo título" aria-label="Busca ilustrativa" /></label><label>Status<select aria-label="Filtro ilustrativo"><option>Todos os status</option></select></label><span class="tf-count">6 tarefas</span></div><div class="tf-board"></div><details class="tf-example"><summary class="cursor-interaction">Prévia do formulário</summary><div class="tf-form-sample"><h2>Nova tarefa</h2><label>Título da tarefa<input placeholder="O que você precisa fazer?" /></label><p class="tf-quiet">A tarefa será adicionada em A fazer.</p><div class="tf-actions"><button type="button" class="cursor-interaction">Cancelar</button><button type="button" class="tf-primary cursor-interaction">Criar tarefa</button></div></div></details></main>
+      </div>
+    </div>
+  </section>
+  <section data-variant="Estúdio editorial" aria-label="Estúdio editorial" hidden>
+    <div class="tf-window tf-editorial" data-design="editorial">
+      <header class="tf-topbar"><div class="tf-brand"><span class="tf-mark" aria-hidden="true">tf</span>TaskFlow</div><span>Meu quadro · Dados ilustrativos</span></header>
+      <main class="tf-body"><p class="tf-quiet">ESTÚDIO EDITORIAL</p><div class="tf-heading"><div><h1>Seu trabalho,<br>com espaço para fluir.</h1><p>Meu quadro · Uma tarefa de cada vez.</p></div><button type="button" class="tf-primary cursor-interaction">+ Nova tarefa</button></div><div class="tf-toolbar"><label>Buscar no quadro<input type="search" placeholder="Buscar pelo título" aria-label="Busca ilustrativa" /></label><label>Status<select aria-label="Filtro ilustrativo"><option>Todos os status</option></select></label><span class="tf-count">6 tarefas</span></div><div class="tf-board"></div><details class="tf-example"><summary class="cursor-interaction">Prévia do formulário</summary><div class="tf-form-sample"><h2>Nova tarefa</h2><label>Título da tarefa<input placeholder="O que você precisa fazer?" /></label><p class="tf-quiet">A tarefa será adicionada em A fazer.</p><div class="tf-actions"><button type="button" class="cursor-interaction">Cancelar</button><button type="button" class="tf-primary cursor-interaction">Criar tarefa</button></div></div></details></main>
+    </div>
+  </section>
+  <section data-variant="Precisão técnica" aria-label="Precisão técnica" hidden>
+    <div class="tf-window tf-technical" data-design="technical">
+      <div class="tf-layout"><aside class="tf-sidebar"><div class="tf-brand"><span class="tf-mark" aria-label="TaskFlow">tf</span></div><nav aria-label="Navegação ilustrativa"><button type="button" class="tf-nav-current cursor-interaction" aria-current="page" aria-label="Meu quadro"><i data-lucide="columns-3" aria-hidden="true"></i></button></nav></aside><main class="tf-body"><p class="tf-quiet">PRECISÃO TÉCNICA · DADOS ILUSTRATIVOS</p><div class="tf-heading"><div><h1>TaskFlow / Meu quadro</h1><p>Organize. Execute. Conclua.</p></div><button type="button" class="tf-primary cursor-interaction">+ Nova tarefa</button></div><div class="tf-toolbar"><label>Buscar no quadro<input type="search" placeholder="Buscar pelo título" aria-label="Busca ilustrativa" /></label><label>Status<select aria-label="Filtro ilustrativo"><option>Todos os status</option></select></label><span class="tf-count">6 tarefas</span></div><div class="tf-board"></div><details class="tf-example"><summary class="cursor-interaction">Prévia do formulário</summary><div class="tf-form-sample"><h2>Nova tarefa</h2><label>Título da tarefa<input placeholder="O que você precisa fazer?" /></label><p class="tf-quiet">A tarefa será adicionada em A fazer.</p><div class="tf-actions"><button type="button" class="cursor-interaction">Cancelar</button><button type="button" class="tf-primary cursor-interaction">Criar tarefa</button></div></div></details></main></div>
+    </div>
+  </section>
+</div>
+<script>
+(() => {
+  const root = document.getElementById('taskflow-design-review');
+  // One immutable fixture shared by every direction. These IDs are not harness features.
+  const tasks = Object.freeze([
+    {id:'EX-01',title:'Planejar a semana',priority:'Alta',column:0},
+    {id:'EX-02',title:'Revisar a proposta de apresentação e alinhar os próximos passos para a entrega do projeto',priority:'Média',column:0},
+    {id:'EX-03',title:'Organizar referências',priority:'Baixa',column:0},
+    {id:'EX-04',title:'Preparar apresentação',priority:'Alta',column:1},
+    {id:'EX-05',title:'Revisar os textos do projeto para melhorar clareza, consistência e acessibilidade',priority:'Média',column:1},
+    {id:'EX-06',title:'Definir objetivo',priority:'Baixa',column:2},
+  ].map(Object.freeze));
+  const columns=['A fazer','Em andamento','Concluído'];
+  const state={theme:'Sistema',scenario:'Quadro completo',mobileColumn:'A fazer'};
+  const emptyCopy={
+    'Quadro vazio':['Seu quadro começa aqui','Quando houver tarefas, elas aparecerão nesta coluna.'],
+    'Sem resultados':['Nenhuma tarefa encontrada','Uma busca ou filtro pode deixar esta coluna sem resultados.'],
+    'Coluna vazia':['Nenhuma tarefa concluída','Quando uma tarefa for concluída, ela aparecerá aqui.'],
+  };
+  const scopeTasks=()=>state.scenario==='Coluna vazia'?tasks.filter(t=>t.column!==2):state.scenario==='Quadro completo'?tasks:[];
+  const windows=[...root.querySelectorAll('.tf-window')];
+  windows.forEach(window=>{
+    window.querySelector('.tf-example').remove();
+    window.querySelector('input[type="search"]').readOnly=true;
+    const priority=window.querySelector('.tf-toolbar select');
+    priority.setAttribute('aria-label','Prioridade — controle visual, não filtra tarefas');
+    priority.parentElement.firstChild.textContent='Prioridade';
+    priority.replaceChildren(...['Todas as prioridades','Alta','Média','Baixa'].map(name=>{const option=document.createElement('option');option.textContent=name;return option;}));
+    priority.addEventListener('change',()=>{window.dataset.priorityPreview=priority.value;});
+    window.querySelector('.tf-primary').setAttribute('aria-label','Nova tarefa — botão ilustrativo, sem criação de tarefa');
+    const mobile=document.createElement('label');mobile.className='tf-mobile-columns';mobile.textContent='Coluna do quadro';
+    const select=document.createElement('select');select.setAttribute('aria-label','Coluna do quadro');
+    columns.forEach(name=>{const option=document.createElement('option');option.textContent=name;select.append(option);});
+    select.addEventListener('change',()=>{state.mobileColumn=select.value;renderMobile();});
+    mobile.append(select);window.querySelector('.tf-board').before(mobile);
+  });
+  function renderMobile(){windows.forEach(window=>{
+    window.querySelector('.tf-mobile-columns select').value=state.mobileColumn;
+    window.querySelectorAll('.tf-column').forEach((column,index)=>column.toggleAttribute('data-mobile-active',columns[index]===state.mobileColumn));
+  });}
+  function render(){
+    const visible=scopeTasks();
+    windows.forEach(window=>{
+      window.style.colorScheme=state.theme==='Sistema'?'':state.theme==='Escuro'?'dark':'light';
+      window.querySelector('.tf-count').textContent=visible.length+' tarefas';
+      const board=window.querySelector('.tf-board');board.replaceChildren();
+      columns.forEach((name,index)=>{
+        const section=document.createElement('section');section.className='tf-column';section.setAttribute('aria-label',name);
+        const header=document.createElement('div');header.className='tf-column-header';
+        const heading=document.createElement('h2');heading.textContent=name;
+        const items=visible.filter(task=>task.column===index);
+        const count=document.createElement('span');count.textContent=items.length+(items.length===1?' tarefa':' tarefas');header.append(heading,count);section.append(header);
+        items.forEach(task=>{
+          const article=document.createElement('article');article.className='tf-task';article.dataset.task=task.id;
+          const button=document.createElement('button');button.type='button';button.className='tf-task-button cursor-interaction';button.setAttribute('aria-pressed','false');button.setAttribute('aria-label','Selecionar prévia: '+task.title);
+          const title=document.createElement('span');title.className='tf-task-title';title.textContent=task.title;
+          const meta=document.createElement('span');meta.className='tf-task-meta';
+          const priority=document.createElement('span');priority.className='tf-priority';priority.dataset.priority=task.priority;priority.textContent=({Alta:'↑ ',Média:'— ',Baixa:'↓ '})[task.priority]+task.priority;
+          const id=document.createElement('small');id.textContent=task.id;meta.append(priority,id);button.append(title,meta);
+          button.addEventListener('click',()=>{const pressed=button.getAttribute('aria-pressed')==='true';window.querySelectorAll('.tf-task-button').forEach(b=>b.setAttribute('aria-pressed','false'));button.setAttribute('aria-pressed',String(!pressed));});
+          article.append(button);section.append(article);
+        });
+        if(!items.length){const empty=document.createElement('div');empty.className='tf-empty';const [title,description]=emptyCopy[state.scenario]||['Nenhuma tarefa nesta coluna','As tarefas aparecerão aqui.'];const strong=document.createElement('strong');strong.textContent=title;const text=document.createElement('p');text.textContent=description;empty.append(strong,text);section.append(empty);}
+        board.append(section);
+      });
+    });renderMobile();
+  }
+  render();
+  // Only presentation changes: no application imports, network calls or persistence.
+  window.taskflowPrototype={tasks,configure:options=>{Object.assign(state,options);render();},snapshot:()=>({state:{...state},tasks:scopeTasks().map(task=>({...task}))})};
+  if(globalThis.Tweak){const controls=new Tweak({container:root,onChange:render});controls.addSelect(state,'theme',{label:'Tema',options:['Sistema','Claro','Escuro']});controls.addSelect(state,'scenario',{label:'Cenário fictício',options:['Quadro completo','Coluna vazia','Quadro vazio','Sem resultados']});controls.addSelect(state,'mobileColumn',{label:'Coluna no mobile',options:columns});}
+  else {
+    document.getElementById('tf-local-controls').hidden=false;
+    [['tf-preview-theme','theme'],['tf-preview-scenario','scenario'],['tf-preview-column','mobileColumn']].forEach(([id,key])=>document.getElementById(id).addEventListener('change',event=>{state[key]=event.target.value;render();}));
+  }
+})();
+</script>
