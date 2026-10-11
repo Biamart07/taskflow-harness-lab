@@ -31,7 +31,7 @@ Phase 4 remains not_started and is not authorized by this work.
 - No authoritative protected promotion mechanism to done exists yet; reviewer identity
   and separate approval authority remain unresolved as documented in docs/.
 - The localStorage lint restriction is not comprehensive import/boundary enforcement.
-- Application CI now has independent application and Chromium E2E jobs; remote results pending.
+- Application CI now has independent application and Chromium E2E jobs; both passed on PR #4.
 - Phase 4 still requires explicit owner approval after Phase 3 completion.
 
 ## Verification — 2026-10-11
@@ -71,5 +71,9 @@ PR #4 is open for owner review. No merge into main was performed.
 - Local verification: npm ci passed; npm run check passed (lint, typecheck/build,
   1 Vitest test and 45 harness tests); Chromium E2E with CI=true passed (1 test,
   exit code 0). validate job comparison and git diff --check passed.
-- GitHub Actions results for the correction commit: pending; not claimed passed.
+- GitHub Actions: passed for correction commit f9a8f1f0cfd9473b679d7a10ac24c5004eccd6ba.
+  Run: https://github.com/Biamart07/taskflow-harness-lab/actions/runs/38162341265
+  validate passed (45 harness tests); application passed (npm ci, lint, typecheck,
+  build, 1 Vitest test); e2e passed (1 Chromium smoke and uploaded report/traces).
+  This evidence is bound to that revision; the documentation-only follow-up triggers a new run.
 - Next step: verify the jobs on PR #4 and wait for owner review; no merge or Phase 4 work.
