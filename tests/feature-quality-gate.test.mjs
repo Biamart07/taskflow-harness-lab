@@ -8,7 +8,7 @@ const workflow = '.github/workflows/taskflow-feature-tests.yml';
 const policy = { features: { [featureId]: {
   status: 'enabled', workflow, required_check: 'feature / TASK-001',
 } } };
-const workflowRuns = [{ path: workflow, head_sha: sha, event: 'push', status: 'completed', conclusion: 'success', check_suite_id: 99 }];
+const workflowRuns = [{ path: workflow, head_sha: sha, event: 'push', head_branch: 'main', status: 'completed', conclusion: 'success', check_suite_id: 99 }];
 const checkRuns = [{ name: 'feature / TASK-001', head_sha: sha, status: 'completed', conclusion: 'success', check_suite: { id: 99 }, app: { slug: 'github-actions' } }];
 const check = (changes = {}) => validateFeatureQuality({ featureId, revision: sha, policy, workflowRuns, checkRuns, ...changes });
 
@@ -22,3 +22,4 @@ test('rejects failed check', () => assert.equal(check({ checkRuns: [{ ...checkRu
 test('rejects untrusted workflow', () => assert.equal(check({ workflowRuns: [{ ...workflowRuns[0], path: 'malicious.yml' }] }).ok, false));
 test('rejects untrusted app', () => assert.equal(check({ checkRuns: [{ ...checkRuns[0], app: { slug: 'other' } }] }).ok, false));
 test('rejects PR-only run as proof of main push', () => assert.equal(check({ workflowRuns: [{ ...workflowRuns[0], event: 'pull_request' }] }).ok, false));
+test('rejects same SHA from a non-main branch', () => assert.equal(check({ workflowRuns: [{ ...workflowRuns[0], head_branch: 'feature/untrusted' }] }).ok, false));
