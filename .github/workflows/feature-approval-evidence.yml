@@ -54,7 +54,7 @@ jobs:
           curl --fail --silent --show-error --location \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/$REPO/actions/workflows/harness-validation.yml/runs?head_sha=$REVISION&per_page=100" > "$RUNNER_TEMP/trusted-runs.json"
+            "https://api.github.com/repos/$REPO/actions/workflows/harness-validation.yml/runs?head_sha=$REVISION&branch=main&per_page=100" > "$RUNNER_TEMP/trusted-runs.json"
           LIVE_MAIN="$(curl --fail --silent --show-error --location \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
