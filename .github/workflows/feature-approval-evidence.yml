@@ -43,14 +43,23 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
           FEATURE_ID: ${{ inputs.feature_id }}
+          GH_REF: ${{ github.ref }}
           REVISION: ${{ steps.identify.outputs.head }}
         run: |
           curl --fail --silent --show-error --location \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/$REPO/commits/$REVISION/check-runs?per_page=100" > "$RUNNER_TEMP/check-runs.json"
+          curl --fail --silent --show-error --location \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/actions/workflows/harness-validation.yml/runs?head_sha=$REVISION&per_page=100" > "$RUNNER_TEMP/trusted-runs.json"
+          LIVE_MAIN="$(curl --fail --silent --show-error --location \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/git/ref/heads/main" | node -e 'let s=""; process.stdin.on("data",x=>s+=x); process.stdin.on("end",()=>process.stdout.write(JSON.parse(s).object.sha))')"
           node harness/verify-approval-request.mjs harness/features.json \
-            "$FEATURE_ID" "$REVISION" "$REVISION" "$RUNNER_TEMP/check-runs.json"
+            "$FEATURE_ID" "$REVISION" "$LIVE_MAIN" "$RUNNER_TEMP/check-runs.json" "$RUNNER_TEMP/trusted-runs.json"
 
   owner-approval:
     name: Await independent approval
@@ -66,6 +75,17 @@ jobs:
         env:
           EXPECTED_SHA: ${{ needs.preflight.outputs.revision }}
         run: test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+      - name: Check live main head after approval
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          EXPECTED_SHA: ${{ needs.preflight.outputs.revision }}
+        run: |
+          LIVE_MAIN="$(curl --fail --silent --show-error --location \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/git/ref/heads/main" | node -e 'let s="";process.stdin.on("data",x=>s+=x);process.stdin.on("end",()=>process.stdout.write(JSON.parse(s).object.sha))')"
+          test "$LIVE_MAIN" = "$EXPECTED_SHA" || { echo "main moved during approval; restart review."; exit 1; }
       - name: Record approval evidence as artifact (no writes to features.json)
         env:
           FEATURE_ID: ${{ inputs.feature_id }}
