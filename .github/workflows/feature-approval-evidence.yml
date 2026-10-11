@@ -1,0 +1,80 @@
+name: Feature approval evidence
+
+on:
+  workflow_dispatch:
+    inputs:
+      feature_id:
+        description: Feature to approve (must already be awaiting_approval)
+        required: true
+        type: string
+      revision:
+        description: Exact full main commit SHA being reviewed (40 hex characters)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  checks: read
+
+jobs:
+  preflight:
+    name: Validate feature and revision
+    runs-on: ubuntu-latest
+    outputs:
+      revision: ${{ steps.identify.outputs.head }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - id: identify
+        name: Bind to main commit
+        env:
+          REQUESTED_SHA: ${{ inputs.revision }}
+        run: |
+          actual="$(git rev-parse HEAD)"
+          test "$actual" = "$REQUESTED_SHA" || { echo "Requested SHA is not workflow HEAD"; exit 1; }
+          echo "head=$actual" >> "$GITHUB_OUTPUT"
+      - name: Fetch authoritative GitHub check runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          REVISION: ${{ steps.identify.outputs.head }}
+        run: |
+          curl --fail --silent --show-error --location \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/commits/$REVISION/check-runs?per_page=100" > "$RUNNER_TEMP/check-runs.json"
+          node harness/verify-approval-request.mjs harness/features.json \
+            "${{ inputs.feature_id }}" "$REVISION" "$REVISION" "$RUNNER_TEMP/check-runs.json"
+
+  owner-approval:
+    name: Await independent approval
+    needs: preflight
+    runs-on: ubuntu-latest
+    environment: feature-approval
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.preflight.outputs.revision }}
+          persist-credentials: false
+      - name: Verify same revision after review
+        env:
+          EXPECTED_SHA: ${{ needs.preflight.outputs.revision }}
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+      - name: Record approval evidence as artifact (no writes to features.json)
+        env:
+          FEATURE_ID: ${{ inputs.feature_id }}
+          APPROVED_SHA: ${{ needs.preflight.outputs.revision }}
+          RUN_ID: ${{ github.run_id }}
+          WORKFLOW_ACTOR: ${{ github.actor }}
+        run: |
+          mkdir -p approval-receipt
+          node -e 'const fs=require("node:fs"); const e=process.env; fs.writeFileSync("approval-receipt/receipt.json", JSON.stringify({feature_id:e.FEATURE_ID,revision:e.APPROVED_SHA,run_id:e.RUN_ID,workflow_actor:e.WORKFLOW_ACTOR,notice:"Environment review audit records in GitHub are the authoritative source of approver identity; actor is only the run initiator. No feature state changed."},null,2)+"\n")'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: feature-approval-request-${{ github.run_id }}
+          path: approval-receipt/receipt.json
+          retention-days: 30
