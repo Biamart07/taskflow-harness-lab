@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "description": "Feature-specific checks must originate from a trusted GitHub Actions workflow for the exact commit. Pending checks never authorize done.",
+  "features": {
+    "TASK-001": {
+      "status": "pending",
+      "workflow": ".github/workflows/taskflow-feature-tests.yml",
+      "required_check": "feature / TASK-001"
+    },
+    "TASK-002": {
+      "status": "pending",
+      "workflow": ".github/workflows/taskflow-feature-tests.yml",
+      "required_check": "feature / TASK-002"
+    },
+    "TASK-003": {
+      "status": "pending",
+      "workflow": ".github/workflows/taskflow-feature-tests.yml",
+      "required_check": "feature / TASK-003"
+    },
+    "TASK-004": {
+      "status": "pending",
+      "workflow": ".github/workflows/taskflow-feature-tests.yml",
+      "required_check": "feature / TASK-004"
+    },
+    "TASK-005": {
+      "status": "pending",
+      "workflow": ".github/workflows/taskflow-feature-tests.yml",
+      "required_check": "feature / TASK-005"
+    },
+    "TASK-006": {
+      "status": "pending",
+      "workflow": ".github/workflows/taskflow-feature-tests.yml",
+      "required_check": "feature / TASK-006"
+    }
+  }
+}
