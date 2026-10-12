@@ -167,3 +167,13 @@ PR #4 is open for owner review. No merge into main was performed.
   Focus recovery when resize hides an active element must be defined before final UI.
 - Next action: wait for owner review. Direction approval alone does not authorize
   the definitive interface, TASK-001..TASK-006 or phase advancement.
+
+## Design PR publication — 2026-10-11
+- Owner authorized publishing design/kanban-exploration and opening a PR to main.
+- Fetched origin/main and confirmed PR #4 was already merged externally at 183dca2.
+  The new PR contains only design exploration, editorial refinements, proposed docs,
+  progress notes and the Tailwind prototype-source exclusion.
+- Local verification evidence remains bound to d8220d0; this follow-up changes
+  documentation only. git diff --check passed before publication.
+- Detailed Design System/mobile choices remain pending human review. No feature,
+  approval, phase, dependency or workflow changes; no merge authorized or performed.
