@@ -3,9 +3,18 @@
 ## Current phase
 Phase 3 — Executable verification.
 
-**State:** in_progress. Application foundation ready for owner review on
-`dev/taskflow-app-foundation`, based on updated main `7ad602d`.
+**State:** in_progress. Design documentation review on `design/kanban-exploration`
+in PR #5. The application foundation was merged through PR #4.
 Phase 4 remains not_started and is not authorized by this work.
+
+**Approved design decisions:** Estúdio Editorial was selected and approved as the
+visual direction. Tab navigation for the mobile Kanban was also explicitly approved.
+These decisions are resolved, not current blockers.
+
+**Pending design review:** only the remaining Design System details, including
+tokens, geometry and components; see docs/design-system.md and docs/ux-guidelines.md.
+No feature was completed or authorized for implementation by this documentation
+update or by these design decisions. All six features remain not_started.
 
 ## Done
 - Phase 1 and Phase 2 approved by the owner (existing phase records unchanged).
@@ -20,9 +29,10 @@ Phase 4 remains not_started and is not authorized by this work.
 - Limited ESLint checks reject direct localStorage access in app/task UI files.
 
 ## In progress
-- Owner review of the foundation on the development branch.
-- UX/UI direction and Design System planning gate, awaiting explicit owner selection.
-- Future TASK-001 implementation and acceptance tests remain pending after design review.
+- Owner review of the remaining Design System details in PR #5: tokens, geometry
+  and components. Visual direction and mobile tab navigation are already approved.
+- TASK-001 implementation and feature acceptance tests require separate authorization;
+  this documentation update grants none.
 
 ## Pending and blockers
 - No application feature is implemented. All six registry entries remain not_started.
@@ -34,6 +44,16 @@ Phase 4 remains not_started and is not authorized by this work.
 - The localStorage lint restriction is not comprehensive import/boundary enforcement.
 - Application CI now has independent application and Chromium E2E jobs; both passed on PR #4.
 - Phase 4 still requires explicit owner approval after Phase 3 completion.
+
+## Current next steps and handoff
+1. Owner reviews the remaining Design System details and the documentation in PR #5.
+2. Await explicit authorization before implementing TASK-001 or other features.
+3. Do not merge PR #5 or advance to Phase 4 without owner authorization.
+
+## Historical session records
+The records below preserve what was known and verified at each step. Earlier
+pending selections, branch references and next actions are historical; the current
+summary above supersedes them where later owner decisions resolved those items.
 
 ## Verification — 2026-10-11
 Environment: Windows, Node.js 22.19.0, npm 11.6.0.
@@ -202,3 +222,13 @@ PR #4 is open for owner review. No merge into main was performed.
   records changed, no dependencies installed and no merge performed.
 - Next step: publish the documentation update to PR #5 and await owner review
   before merge. These design approvals do not authorize feature implementation.
+
+## PR #5 P2 current-status correction — 2026-10-11
+- Removed the resolved direction-selection blocker from the current summary;
+  recorded Editorial identity and mobile tabs as approved, with remaining tokens,
+  geometry and components still under review. Explicitly separated historical records.
+- Documentation-only change in PROGRESS.md. npm run test:harness passed (45 tests,
+  zero failures/skips); git diff --check passed. Application/prototype checks not
+  rerun because executable code is unchanged. Feature/approval records unchanged.
+- Phase 3 remains in_progress; no feature implementation authorization, completion,
+  merge or phase advancement. Await owner review of PR #5.
