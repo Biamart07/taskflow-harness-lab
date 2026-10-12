@@ -1,7 +1,6 @@
-# TaskFlow — Design System proposto
+# TaskFlow — Design System v1
 
-Status: **direção visual e navegação responsiva aprovadas; demais detalhes propostos**,
-2026-10-11, Fase 3.
+Status: **Design System v1 aprovado pela proprietária em 2026-10-12**, Fase 3.
 
 A proprietária escolheu **Estúdio Editorial** na conversa: creme e violeta,
 DM Sans, navegação superior, título expressivo e cards arredondados. Essa escolha
@@ -25,8 +24,9 @@ Tokens futuros pertencem à apresentação, sem operações de tarefa ou persist
 
 ## Tokens de cor
 
-Os nomes são semânticos; os valores são candidatos, não contratos congelados.
-O protótipo usa o prefixo `--ed-`; a aplicação só receberá tokens após revisão.
+Os nomes são semânticos; os valores abaixo são a referência aprovada para a versão 1.
+O protótipo usa o prefixo `--ed-`; a implementação deve preservar a intenção
+semântica e registrar qualquer alteração posterior dos tokens para revisão.
 
 | Token | Claro | Escuro | Uso |
 | --- | --- | --- | --- |
@@ -148,8 +148,8 @@ pendente de escolha para o produto. Não adicionar seletor de layout ao produto.
   Sem rolagem horizontal para ler tarefas. Testar também zoom/reflow.
 
 O limite de 700px, o tratamento intermediário de tablet, gutters e paddings acima
-não foram congelados pela aprovação do padrão de navegação. Permanecem sujeitos
-à revisão de legibilidade, zoom/reflow e densidade.
+integram a referência inicial da versão 1. Podem ser refinados quando testes de
+legibilidade, zoom/reflow e densidade demonstrarem necessidade; registrar desvios.
 
 ## Verificação e revisão
 
@@ -172,10 +172,18 @@ Nenhum resultado autoriza feature `done` ou mudança de fase.
 Referências primárias: [WCAG 2.2](https://www.w3.org/TR/WCAG22/) e
 [padrão de abas WAI-ARIA APG](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/).
 
-## Decisões pendentes do gate humano
+## Aprovação humana do Design System v1
 
-Revisar valores dos tokens, hierarquia/densidade, variantes claro/escuro, indicadores,
-metadados do card e medidas/breakpoints. Fluxos definitivos, modal e estratégia de
-fontes ainda dependem de aprovação. A identidade Editorial e a navegação por abas
-no mobile estão aprovadas no escopo descrito acima; os demais detalhes não devem
-ser tratados como especificação final nem autorização de implementação.
+Em 2026-10-12, a proprietária aprovou a versão atual do Design System Estúdio
+Editorial, incluindo tokens, tipografia, geometria, variantes claro/escuro,
+componentes e estados visuais propostos, além do padrão mobile por abas já aprovado.
+Essa aprovação autoriza o uso desta documentação como referência visual da
+implementação dentro da Fase 3, respeitando o escopo de trabalho autorizado.
+
+Continuam exigindo especificação e validação conforme cada feature: fluxos reais,
+comportamento de modal, seleção/edição, gerenciamento de foco, contraste de todos
+os novos estados, zoom e uso com tecnologias assistivas. Os protótipos não passam
+a ser código de produção automaticamente.
+
+Aprovar o Design System não altera `harness/features.json`, `harness/phases.json`,
+não concede `done` a qualquer feature e não aprova a Fase 4.
