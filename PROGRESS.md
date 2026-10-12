@@ -16,7 +16,7 @@ remains pending. No human approval records were edited.
 - No new dependencies; no editing, deletion, filters, movement or durable storage.
 
 ## In progress / handoff
-TASK-001 is being verified for owner review. TASK-002..TASK-006 remain not_started.
+TASK-001 is awaiting_approval after passing local acceptance checks. TASK-002..TASK-006 remain not_started.
 Memory lifetime is intentional: reload resets tasks; persistence remains TASK-006.
 Feature verification policy is enabled only for TASK-001; this PR's new workflow
 is proposed until reviewed/merged. A PR check does not satisfy the trusted main-push
@@ -30,7 +30,7 @@ promotion gate. No automatic merge or feature completion is authorized.
 - Existing secure promotion authority remains unresolved; no Phase 4 implementation.
 
 ## Current next action
-Finish final checks, publish the PR and wait for owner review and feature approval.
+Review the TASK-001 PR and docs/task-001-verification.md. Await owner review and feature approval; do not merge automatically.
 ## Historical session records
 The records below preserve what was known and verified at each step. Earlier
 pending selections, branch references and next actions are historical; the current
