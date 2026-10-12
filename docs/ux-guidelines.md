@@ -1,12 +1,12 @@
-# TaskFlow — Diretrizes de UX propostas
+# TaskFlow — Diretrizes de UX v1
 
-Status: **identidade e padrão responsivo aprovados; demais detalhes em revisão**,
-Fase 3, 2026-10-11.
+Status: **diretrizes e Design System v1 aprovados em 2026-10-12**, Fase 3.
 Ler junto com `design-system.md`, `architecture.md` e os contratos do harness.
 A identidade Estúdio Editorial e a navegação por abas no Kanban mobile foram
-aprovadas explicitamente pela proprietária. Os demais detalhes e a interface
-definitiva aguardam revisão. Sem mudança nos registros de aprovação do harness,
-estados de features ou fase.
+aprovadas explicitamente pela proprietária. A versão 1 atual do Design System
+e destas diretrizes foi aprovada como referência para o desenvolvimento.
+A implementação funcional e sua validação continuam pendentes. Sem mudança nos
+registros de aprovação do harness, estados de features ou fase.
 
 ## Princípios
 
@@ -162,14 +162,17 @@ precisa de justificativa e autorização prévia; nenhuma foi instalada aqui.
 Automação identifica parte das falhas e sustenta evidência repetível. Não certifica
 conformidade WCAG completa nem substitui avaliação de pessoas usando o produto.
 
-## Gate dentro da Fase 3
+## Gate de design aprovado dentro da Fase 3
 
-Identidade Editorial e padrão mobile por abas estão aprovados. Próxima decisão
-humana: revisar tokens, estados, cards, medidas/breakpoints e demais detalhes.
-Até lá, manter esses detalhes como proposta e os protótipos fora da produção.
-Não editar `harness/features.json`, `harness/phases.json` ou registros de aprovação
-para registrar decisões de design. Não fazer merge. A aprovação da identidade e
-do padrão responsivo não autoriza avançar de fase ou implementar funcionalidades.
+A proprietária aprovou em 2026-10-12 a versão 1 do Design System e destas
+diretrizes de UX, incluindo a identidade Editorial e abas no mobile. Esta é uma
+referência aprovada, não uma afirmação de conformidade WCAG nem de conclusão das
+features. Ajustes descobertos durante implementação e testes devem ser documentados
+para revisão humana. Os protótipos permanecem isolados da produção.
+
+Não editar `harness/features.json`, `harness/phases.json` nem registros de aprovação
+para registrar decisões estéticas. A aprovação do design não aprova funcionalidades
+nem avançar para a Fase 4.
 
 Referências: [WCAG 2.2](https://www.w3.org/TR/WCAG22/),
 [WAI-ARIA APG: abas](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/),

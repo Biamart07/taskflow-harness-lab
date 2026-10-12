@@ -3,18 +3,15 @@
 ## Current phase
 Phase 3 — Executable verification.
 
-**State:** in_progress. Design documentation review on `design/kanban-exploration`
-in PR #5. The application foundation was merged through PR #4.
+**State:** in_progress. PR #5 (design exploration) and PR #4 (application foundation)
+were merged. Design System v1 was approved by the owner on 2026-10-12.
 Phase 4 remains not_started and is not authorized by this work.
 
-**Approved design decisions:** Estúdio Editorial was selected and approved as the
-visual direction. Tab navigation for the mobile Kanban was also explicitly approved.
-These decisions are resolved, not current blockers.
-
-**Pending design review:** only the remaining Design System details, including
-tokens, geometry and components; see docs/design-system.md and docs/ux-guidelines.md.
-No feature was completed or authorized for implementation by this documentation
-update or by these design decisions. All six features remain not_started.
+**Approved design decisions:** Estúdio Editorial, mobile Kanban tabs and the current
+Design System v1 (tokens, geometry, components and documented UX patterns).
+See docs/design-system.md and docs/ux-guidelines.md. These are no longer design
+gates; remaining work is implementing and testing functionality and accessibility.
+No feature was completed by this approval. All six features remain not_started.
 
 ## Done
 - Phase 1 and Phase 2 approved by the owner (existing phase records unchanged).
@@ -232,3 +229,10 @@ PR #4 is open for owner review. No merge into main was performed.
   rerun because executable code is unchanged. Feature/approval records unchanged.
 - Phase 3 remains in_progress; no feature implementation authorization, completion,
   merge or phase advancement. Await owner review of PR #5.
+
+## Design System v1 approval — 2026-10-12
+- Owner explicitly approved the current Design System as version 1, including the existing Editorial direction, documented tokens, components, responsive measurements and mobile tab pattern.
+- Design documentation now serves as an initial implementation reference; material changes should be surfaced for owner review.
+- No application functionality, tests, phase registry, feature registry or approval fields changed by this documentation-only PR.
+- Phase 3 remains in_progress. Future feature-specific acceptance tests and a constrained human-authorized promotion mechanism remain unresolved.
+- Next: plan TASK-001 scope and test evidence using the approved visual system; do not mark done without required checks and separate human approval.
