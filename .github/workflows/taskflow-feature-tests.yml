@@ -1,0 +1,34 @@
+name: TaskFlow feature tests
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  task-001:
+    name: feature / TASK-001
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: TASK-001 unit acceptance
+        run: npm run test:task-001
+      - name: TASK-001 browser acceptance
+        run: npm run test:e2e:task-001 -- --reporter=list,html
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: task-001-evidence
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7

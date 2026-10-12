@@ -1,5 +1,2 @@
-# Task infrastructure
-
-Reserved for adapters implementing the application repository interface.
-Only a future persistence adapter may access localStorage. Persistence (TASK-006)
-is outside this foundation scope and is not implemented.
+MemoryTaskRepository is a session-only adapter with defensive snapshots.
+Durable persistence remains TASK-006; no localStorage adapter exists here.

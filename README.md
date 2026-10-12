@@ -73,3 +73,12 @@ ainda não foram implementados; as políticas de aprovação continuam pendentes
 A estrutura de camadas está descrita em `docs/architecture.md`. Tailwind CSS 4
 é integrado pelo plugin oficial `@tailwindcss/vite` e pelo import em `src/styles.css`.
 O lockfile deve ser versionado para instalação reproduzível.
+
+## TASK-001 acceptance commands
+- `npm run test:task-001`: domain/application/repository acceptance (Vitest).
+- `npm run test:e2e:task-001`: real creation, rejection/recovery, modal keyboard,
+  mobile tabs/focus, themes, layout and sampled contrast (Chromium production build).
+- `.github/workflows/taskflow-feature-tests.yml` publishes `feature / TASK-001`.
+  `validate` remains harness-only and is not feature completion evidence.
+
+Tasks currently live only for the open session. Durable persistence is TASK-006.

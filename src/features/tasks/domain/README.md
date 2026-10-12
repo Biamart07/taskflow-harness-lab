@@ -1,4 +1,2 @@
-# Task domain
-
-Reserved for task types and business rules. Must not depend on React, browser APIs,
-application code or infrastructure. No task functionality is implemented yet.
+Task and TaskStatus describe board data. createTask rejects blank trimmed titles
+and creates tasks in todo. No browser or repository dependency.

@@ -4,15 +4,21 @@
     {
       "id": "TASK-001",
       "title": "Create task",
-      "state": "not_started",
+      "state": "in_progress",
       "depends_on": [],
       "acceptance_criteria": [
         "User can create a task with a title",
         "New task appears in Todo column"
       ],
       "verification": {
-        "status": "not_configured",
-        "commands": []
+        "status": "pending",
+        "commands": [
+          "npm run check",
+          "npm run test:task-001",
+          "npm run test:e2e:task-001"
+        ],
+        "evidence": "docs/task-001-verification.md",
+        "source": "github_actions"
       },
       "approval": {
         "status": "not_requested",

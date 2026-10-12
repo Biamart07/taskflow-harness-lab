@@ -36,3 +36,13 @@ Until an external validator/scheduler enforces these rules with approval authori
 
 ## Next implementation milestone
 Build the verifier and approval gate in a subsequent authorized phase, and test both valid and invalid transitions.
+
+## Integrated revision evidence (PR #7 correction)
+The PR guard validates the final base-to-head transition, not the sequence of
+intermediate commits. This TASK-001 PR must end in_progress. Review-state mutation
+is deferred to a later owner-reviewed step after integrated evidence is available.
+
+Registry verification is configuration (pending/github_actions); it must not store
+a guessed merge SHA or attest passed. Runtime preflight obtains checks from GitHub
+for the exact live main SHA. Evidence receipts bind to a specific SHA and do not
+mutate this contract, the registry or human approvals. See approval-evidence.md.

@@ -1,51 +1,50 @@
 # TaskFlow — Progress
 
 ## Current phase
-Phase 3 — Executable verification.
+Phase 3 — Executable verification, in_progress. Phase 4 remains not_started.
+Design System Estúdio Editorial v1 is approved and used by TASK-001.
+The owner authorized TASK-001 implementation on 2026-10-12; feature approval
+remains pending. No human approval records were edited.
 
-**State:** in_progress. PR #5 (design exploration) and PR #4 (application foundation)
-were merged. Design System v1 was approved by the owner on 2026-10-12.
-Phase 4 remains not_started and is not authorized by this work.
+## Done within the authorized implementation scope
+- Implemented title-only task creation, trimming and rejection of blank titles.
+- New tasks appear in A fazer with accurate counts and polite success feedback.
+- Accessible field errors, native modal, focus wrapping/Escape/return behavior.
+- Editorial light/dark tokens, responsive board and mobile ARIA tabs with focus recovery.
+- UI → TaskService → domain rules / TaskRepository → session-only memory adapter.
+- Dedicated TASK-001 unit/E2E suites and feature / TASK-001 workflow; validate preserved.
+- No new dependencies; no editing, deletion, filters, movement or durable storage.
 
-**Approved design decisions:** Estúdio Editorial, mobile Kanban tabs and the current
-Design System v1 (tokens, geometry, components and documented UX patterns).
-See docs/design-system.md and docs/ux-guidelines.md. These are no longer design
-gates; remaining work is implementing and testing functionality and accessibility.
-No feature was completed by this approval. All six features remain not_started.
+## In progress / handoff
+TASK-001 remains in_progress in PR #7. Local/PR tests are diagnostic evidence, not integrated approval evidence. TASK-002..TASK-006 remain not_started.
+Memory lifetime is intentional: reload resets tasks; persistence remains TASK-006.
+Feature verification policy is enabled only for TASK-001; this PR's new workflow
+is proposed until reviewed/merged. A PR check does not satisfy the trusted main-push
+promotion gate. No automatic merge or feature completion is authorized.
 
-## Done
-- Phase 1 and Phase 2 approved by the owner (existing phase records unchanged).
-- Existing state validator, PR state guard and feature-specific preflight policy retained.
-- Evidence-only approval integration merged previously; promotion authority remains pending.
-- Prepared a minimal React 19, TypeScript 5.9, Vite 7 and Tailwind CSS 4 application.
-- Added presentation-only application shell and documented reserved task layers:
-  UI, application/repository interface, domain and infrastructure/adapters.
-- Configured ESLint, strict TypeScript, Vitest and Playwright, with isolated test discovery.
-- Added initialization smoke tests; these are not TASK-001 acceptance tests.
-- Added npm scripts, lockfile, generated-file exclusions and README setup instructions.
-- Limited ESLint checks reject direct localStorage access in app/task UI files.
+## Pending
+- Owner visual/usability and screen-reader review, actual zoom/reflow and broader
+  browser coverage; automated Chromium checks do not certify full WCAG compliance.
+- Review/merge of this PR by owner, then trusted exact-main-revision evidence before
+  a separate owner-controlled promotion. Feature approval is separate from phase approval.
+- Existing secure promotion authority remains unresolved; no Phase 4 implementation.
 
-## In progress
-- Owner review of the remaining Design System details in PR #5: tokens, geometry
-  and components. Visual direction and mobile tab navigation are already approved.
-- TASK-001 implementation and feature acceptance tests require separate authorization;
-  this documentation update grants none.
-
-## Pending and blockers
-- No application feature is implemented. All six registry entries remain not_started.
-- Task use cases, domain types, repository interface and adapters are reserved, not implemented.
-- Dedicated feature test workflows are absent; verification policies remain pending.
-- Initialization tests do not verify task creation or authorize feature approval.
-- No authoritative protected promotion mechanism to done exists yet; reviewer identity
-  and separate approval authority remain unresolved as documented in docs/.
-- The localStorage lint restriction is not comprehensive import/boundary enforcement.
-- Application CI now has independent application and Chromium E2E jobs; both passed on PR #4.
-- Phase 4 still requires explicit owner approval after Phase 3 completion.
-
-## Current next steps and handoff
-1. Owner reviews the remaining Design System details and the documentation in PR #5.
-2. Await explicit authorization before implementing TASK-001 or other features.
-3. Do not merge PR #5 or advance to Phase 4 without owner authorization.
+## Current next action
+Review corrected PR #7 and docs/approval-evidence.md. After owner-controlled integration, query real main evidence before considering a separate awaiting_approval step. Do not merge automatically.
+## PR #7 harness corrections — 2026-10-12
+- P1: removed self-attested passed/revision fields; registry stays pending with
+  github_actions source. Read-only collector binds full requested SHA to live main
+  before/after fetching paginated GitHub check/workflow results.
+- Both validate and feature check require exact workflow, push/main, SHA, success
+  and linked check-suite. Approval preflight reuses this collector and still requires
+  awaiting_approval. Separate verification dispatch supports in_progress without writes.
+- P2: final PR base-to-head transition is checked against TRANSITIONS; intermediate
+  commits do not excuse not_started → awaiting_approval. TASK-001 ends in_progress.
+- Application, Design System, functional tests, validate workflow, phase states and
+  human approval records unchanged. No done mechanism or merge.
+- Security authority alternatives and external protection prerequisites documented
+  in docs/approval-evidence.md. Actual post-merge collection cannot be run for this
+  unmerged PR; main-push evidence is still pending.
 
 ## Historical session records
 The records below preserve what was known and verified at each step. Earlier
@@ -236,3 +235,12 @@ PR #4 is open for owner review. No merge into main was performed.
 - No application functionality, tests, phase registry, feature registry or approval fields changed by this documentation-only PR.
 - Phase 3 remains in_progress. Future feature-specific acceptance tests and a constrained human-authorized promotion mechanism remain unresolved.
 - Next: plan TASK-001 scope and test evidence using the approved visual system; do not mark done without required checks and separate human approval.
+
+## P1/P2 correction verification — 2026-10-12
+- npm run check passed (lint, typecheck/build, 9 application units and 84 harness
+  tests before final edge-case additions); final harness suite passed with 87 tests.
+- Three targeted regression files passed, 60 tests; 13 production Chromium E2E passed.
+- Final base-to-head registry guard and git diff --check passed. Application code,
+  functional tests, Design System, phases and validate workflow unchanged since de99a7b.
+- Live main evidence collection remains pending authorized integration; mock API
+  tests are not a claim that the integrated TASK-001 has passed on main.
