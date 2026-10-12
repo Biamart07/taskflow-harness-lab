@@ -1,10 +1,12 @@
 # TaskFlow — Diretrizes de UX propostas
 
-Status: **proposta para revisão humana**, Fase 3, 2026-10-11.
+Status: **identidade e padrão responsivo aprovados; demais detalhes em revisão**,
+Fase 3, 2026-10-11.
 Ler junto com `design-system.md`, `architecture.md` e os contratos do harness.
-A direção Estúdio Editorial foi escolhida pela proprietária; os detalhes deste
-documento e a interface definitiva aguardam revisão. Sem mudança nos registros
-de aprovação, estados de features ou fase.
+A identidade Estúdio Editorial e a navegação por abas no Kanban mobile foram
+aprovadas explicitamente pela proprietária. Os demais detalhes e a interface
+definitiva aguardam revisão. Sem mudança nos registros de aprovação do harness,
+estados de features ou fase.
 
 ## Princípios
 
@@ -27,7 +29,16 @@ competir com o título. IDs EX são instrumentos de comparação, não informaç
 produto. Não transformar todo o quadro em um widget ARIA complexo sem necessidade:
 seções e botões nativos bastam para a exploração.
 
-## Mobile: comparação em revisão
+## Navegação responsiva aprovada
+
+Desktop mantém **três colunas lado a lado**. Mobile apresenta **uma coluna por
+vez**, com abas **A fazer**, **Em andamento** e **Concluído**, cada uma com a
+quantidade de tarefas da coluna. Toque e teclado devem seguir o padrão WAI-ARIA
+de tabs, com foco visível, gerenciamento de foco no breakpoint e sem rolagem
+horizontal para navegar entre tarefas. Decisão explícita registrada em 2026-10-11.
+
+A comparação abaixo permanece como justificativa e histórico da exploração;
+colunas empilhadas não estão mais pendentes de escolha.
 
 | Critério | Colunas empilhadas | Abas |
 | --- | --- | --- |
@@ -35,18 +46,36 @@ seções e botões nativos bastam para a exploração.
 | Rolagem | Cresce com o total de tarefas | Cresce com a coluna ativa |
 | Custo de navegação | Rolagem até o estado | Uma ação para trocar estado |
 | Acessibilidade | Fluxo de leitura simples | Exige padrão de abas correto |
-| Recomendação | Boa alternativa para leitura geral | Preferida provisoriamente para mobile |
+| Decisão | Preservada como histórico exploratório | Aprovada para o Kanban mobile |
 
 Abas: `tablist` nomeado; `tab` com `aria-selected`, `aria-controls` e ID único;
 painel com `tabpanel` e `aria-labelledby`. Um ponto de entrada no conjunto,
-setas esquerda/direita com retorno circular, Home/End, Tab para o conteúdo.
-Ativação automática é apropriada neste protótipo sem latência. Painel vazio pode
+setas esquerda/direita com retorno circular, Home/End, Tab para o conteúdo e
+Shift+Tab para retornar na ordem de navegação. Toque/click ativa a aba escolhida.
+Ativação automática é apropriada neste protótipo sem latência; se a implementação
+futura exigir ativação manual, Enter/Space ativa a aba focada. Painel vazio pode
 receber foco para a leitura do estado vazio. Ao retornar ao desktop, todas as
 colunas reaparecem e os papéis de aba dos painéis são removidos.
 
-Manter foco previsível ao mudar breakpoint; o protótipo não resolve o caso em que
-um elemento focado é ocultado durante redimensionamento. Testar e definir essa
-política antes da implementação definitiva. Abas não são recurso de mover tarefas.
+### Foco na mudança de breakpoint: critérios obrigatórios
+
+- Preservar o foco quando o elemento continuar visível, inclusive controles fora
+  do quadro. Não roubar foco ao redimensionar ou redefinir a coluna sem necessidade.
+- Se a mudança ocultar o elemento focado, transferir o foco para um destino visível
+  e lógico do mesmo contexto. Nunca deixá-lo em painel oculto ou perdê-lo no body.
+- Ao entrar no mobile com foco dentro de uma coluna, manter essa coluna visível
+  e sua aba selecionada, preservando o elemento focado quando possível.
+- Ao voltar ao desktop com foco em uma aba que será ocultada, encaminhar o foco
+  ao conteúdo/cabeçalho visível da coluna correspondente. Se o foco já estiver em
+  um card que continua visível, preservá-lo.
+- Validar as duas direções do breakpoint, as três colunas, painel vazio, toque e
+  teclado. A transferência programática também precisa de foco visível.
+
+Esses critérios detalham o requisito aprovado de foco adequado, sem implementar
+comportamento. O protótipo atual não resolve a recuperação de foco quando resize
+oculta um elemento; a limitação continua pendente de implementação e testes.
+O valor exato do breakpoint e o modo de ativação final ainda dependem de revisão.
+Abas não são recurso de mover tarefas.
 
 ## Fluxos futuros, não implementados
 
@@ -96,6 +125,8 @@ falha relevante: alert apropriado. Não anunciar hover. O campo inválido do cat
 | Sem overflow horizontal | Playwright, 320/390/768/1024/1280px, ambos temas | 20 dashboard + 4 catálogo passaram |
 | Foco visível, seleção via teclado | Tab/Shift+Tab, Space/Enter, CSS computado, screenshot | Verificado nos cards |
 | Abas corretas por teclado | Setas, Home/End, Tab, aria-selected, painel visível | Verificado, incluindo painel vazio |
+| Contagens por coluna e uma coluna visível no mobile | Playwright: comparar abas com dados e verificar painéis visíveis | Requisito aprovado; validação abrangente futura |
+| Preservar/recuperar foco ao cruzar breakpoint | Playwright: foco em cada coluna/aba, resize nos dois sentidos, destino visível | Requisito aprovado; não implementado/verificado no protótipo |
 | Erro associado e disabled nativo | `aria-invalid`, `aria-describedby`, atributo disabled | Amostras verificadas; sem validação de tarefa |
 | Ausência de erros JS | Listener pageerror | Zero no roteiro executado |
 | Semântica JSX e nomes acessíveis | ESLint + futuro eslint-plugin-jsx-a11y | Plugin não instalado; regra futura |
@@ -121,7 +152,8 @@ precisa de justificativa e autorização prévia; nenhuma foi instalada aqui.
 - Legibilidade real da DM Sans, especialmente prazo e badges no mobile.
 - Densidade de cards longos e leitura quando muitos cards tiverem descrição.
 - Clareza dos símbolos e distinção entre status, prioridade, seleção e foco.
-- Preferência entre abas e empilhamento com tarefas reais e uso prolongado.
+- Usabilidade das abas aprovadas com tarefas reais e uso prolongado; ajustar
+  densidade e medidas sem reabrir a escolha do padrão por inferência do agente.
 - Leitura por leitor de tela (por exemplo NVDA), ordem de anúncio e clareza do feedback.
 - Compreensão das mensagens, facilidade de recuperação e conforto dos fluxos.
 - Comparação visual de screenshots: uma diferença de pixels não decide se houve
@@ -132,11 +164,12 @@ conformidade WCAG completa nem substitui avaliação de pessoas usando o produto
 
 ## Gate dentro da Fase 3
 
-Próxima decisão humana: aprovar ou ajustar tokens, estados, cards e solução mobile.
-Até lá, manter esta documentação como proposta e os protótipos fora da produção.
+Identidade Editorial e padrão mobile por abas estão aprovados. Próxima decisão
+humana: revisar tokens, estados, cards, medidas/breakpoints e demais detalhes.
+Até lá, manter esses detalhes como proposta e os protótipos fora da produção.
 Não editar `harness/features.json`, `harness/phases.json` ou registros de aprovação
-para registrar escolha estética. Não fazer merge. A escolha da direção não
-autoriza avançar de fase ou implementar funcionalidades.
+para registrar decisões de design. Não fazer merge. A aprovação da identidade e
+do padrão responsivo não autoriza avançar de fase ou implementar funcionalidades.
 
 Referências: [WCAG 2.2](https://www.w3.org/TR/WCAG22/),
 [WAI-ARIA APG: abas](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/),

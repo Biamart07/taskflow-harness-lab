@@ -1,12 +1,15 @@
 # TaskFlow — Design System proposto
 
-Status: **proposta para revisão humana**, 2026-10-11, Fase 3.
+Status: **direção visual e navegação responsiva aprovadas; demais detalhes propostos**,
+2026-10-11, Fase 3.
 
 A proprietária escolheu **Estúdio Editorial** na conversa: creme e violeta,
 DM Sans, navegação superior, título expressivo e cards arredondados. Essa escolha
-aprova a direção visual; os tokens, componentes e comportamentos abaixo continuam
-propostos. Não autoriza implementar features, encerrar a Fase 3 ou alterar registros
-de aprovação. Este documento não é uma aprovação do harness.
+aprova a direção visual. A proprietária também aprovou explicitamente as abas no
+Kanban mobile e os requisitos listados em “Navegação responsiva aprovada”. Tokens,
+geometria e demais componentes/comportamentos continuam propostos. Essas decisões
+não autorizam implementar features, encerrar a Fase 3 ou alterar registros de
+aprovação. Este documento não é uma aprovação de feature ou fase do harness.
 
 ## Intenção e limites
 
@@ -119,21 +122,34 @@ Foco e seleção podem coexistir. A amostra de foco no catálogo é uma demonstr
 visual; as capturas `keyboard-focus` vêm de teclado real. Anel nunca deve ser
 cortado pelo container. Futuras transições devem respeitar `prefers-reduced-motion`.
 
-## Responsividade proposta
+## Navegação responsiva aprovada
+
+Decisão explícita da proprietária na conversa, registrada em 2026-10-11:
+
+- **Desktop:** três colunas lado a lado.
+- **Mobile:** uma coluna visível por vez, com abas **A fazer**, **Em andamento** e
+  **Concluído**. Cada aba exibe a quantidade de tarefas da respectiva coluna.
+- Navegação acessível por toque e teclado, seguindo o padrão WAI-ARIA de tabs.
+- Foco visível e gerenciamento adequado de foco na mudança de breakpoint:
+  preservar o foco quando seu elemento continuar visível; quando for ocultado,
+  manter o contexto e transferir o foco para um destino visível e lógico.
+- Sem rolagem horizontal para navegar entre tarefas.
+
+O requisito de gerenciamento de foco está aprovado; sua implementação e
+verificação continuam pendentes. Ver critérios de aceite em `ux-guidelines.md`.
+Colunas empilhadas ficam como histórico da exploração, não como alternativa
+pendente de escolha para o produto. Não adicionar seletor de layout ao produto.
+
+### Breakpoints e medidas ainda propostos
 
 - Acima de 900px: três colunas iguais, gutters 40px.
 - De 701 a 900px: três colunas, gutters 24px, cards com padding 14px.
 - Até 700px: filtros e ação empilhados, gutters 18px, cards com padding 18px.
   Sem rolagem horizontal para ler tarefas. Testar também zoom/reflow.
 
-**Alternativa A — colunas empilhadas:** todas as tarefas visíveis em ordem de status;
-boa visão de conjunto e sem troca de contexto, mas exige mais rolagem.
-
-**Alternativa B — abas:** uma coluna visível; todas as abas mostram contagem;
-favorece consulta rápida e mantém a largura dos cards, mas esconde o restante do
-quadro. Recomendação provisória para mobile: B, sujeita à decisão da proprietária.
-Ambas usam o mesmo dashboard de três colunas no desktop. Não adicionar um seletor
-de layout ao produto sem evidência de necessidade.
+O limite de 700px, o tratamento intermediário de tablet, gutters e paddings acima
+não foram congelados pela aprovação do padrão de navegação. Permanecem sujeitos
+à revisão de legibilidade, zoom/reflow e densidade.
 
 ## Verificação e revisão
 
@@ -159,6 +175,7 @@ Referências primárias: [WCAG 2.2](https://www.w3.org/TR/WCAG22/) e
 ## Decisões pendentes do gate humano
 
 Revisar valores dos tokens, hierarquia/densidade, variantes claro/escuro, indicadores,
-metadados do card e alternativa mobile. Fluxos definitivos, modal e estratégia de
-fontes ainda dependem de aprovação. A direção Editorial está escolhida; o restante
-não deve ser tratado como especificação final nem autorização de implementação.
+metadados do card e medidas/breakpoints. Fluxos definitivos, modal e estratégia de
+fontes ainda dependem de aprovação. A identidade Editorial e a navegação por abas
+no mobile estão aprovadas no escopo descrito acima; os demais detalhes não devem
+ser tratados como especificação final nem autorização de implementação.

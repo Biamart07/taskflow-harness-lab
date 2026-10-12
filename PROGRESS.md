@@ -177,3 +177,28 @@ PR #4 is open for owner review. No merge into main was performed.
   documentation only. git diff --check passed before publication.
 - Detailed Design System/mobile choices remain pending human review. No feature,
   approval, phase, dependency or workflow changes; no merge authorized or performed.
+
+## Mobile Kanban navigation approved — 2026-10-11
+- Owner explicitly approved mobile tabs; Estúdio Editorial remains the approved
+  visual identity. This supersedes earlier notes that the mobile choice was pending.
+- Approved requirements: desktop shows three columns side by side; mobile shows
+  one column at a time with A fazer, Em andamento and Concluído tabs, each displaying
+  its task count; touch/keyboard navigation follows WAI-ARIA tabs; visible focus and
+  appropriate focus management across breakpoints; no horizontal task navigation.
+- Updated docs/design-system.md and docs/ux-guidelines.md on design/kanban-exploration.
+  PR #5 remains open for main and will receive this documentation-only follow-up.
+- Documented focus acceptance criteria: preserve visible focus/context, keep the
+  focused column visible when entering mobile, recover focus to corresponding
+  visible content if its tab is hidden on desktop, and never strand focus in a hidden
+  panel. Implementation/testing of breakpoint recovery remains pending; no prototype
+  or production code changed and no new accessibility success is claimed.
+- Tokens, component details, density, themes, exact breakpoints/geometry and other
+  UX flows remain proposed. Stacked columns remain exploration history only.
+- Verification: npm run test:harness passed (45 tests, zero failures/skips);
+  git diff --check passed; diff scope limited to these three documentation files.
+  src/, prototypes/, harness/, workflows and dependency manifests are unchanged.
+  Application and prototype checks were not rerun because executable code is unchanged.
+- Still Phase 3; all six features remain not_started. No feature/phase approval
+  records changed, no dependencies installed and no merge performed.
+- Next step: publish the documentation update to PR #5 and await owner review
+  before merge. These design approvals do not authorize feature implementation.
