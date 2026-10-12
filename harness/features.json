@@ -4,7 +4,7 @@
     {
       "id": "TASK-001",
       "title": "Create task",
-      "state": "not_started",
+      "state": "in_progress",
       "depends_on": [],
       "acceptance_criteria": [
         "User can create a task with a title",
@@ -12,7 +12,10 @@
       ],
       "verification": {
         "status": "not_configured",
-        "commands": []
+        "commands": [
+          "npm run test:task-001",
+          "npm run test:e2e:task-001"
+        ]
       },
       "approval": {
         "status": "not_requested",

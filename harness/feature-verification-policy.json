@@ -3,7 +3,7 @@
   "description": "Feature-specific checks must originate from a trusted GitHub Actions workflow for the exact commit. Pending checks never authorize done.",
   "features": {
     "TASK-001": {
-      "status": "pending",
+      "status": "enabled",
       "workflow": ".github/workflows/taskflow-feature-tests.yml",
       "required_check": "feature / TASK-001"
     },

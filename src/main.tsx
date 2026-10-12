@@ -2,12 +2,9 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './app/App';
 import './styles.css';
-
+import { TaskService } from './features/tasks/application/task-service';
+import { MemoryTaskRepository } from './features/tasks/infrastructure/memory-task-repository';
+const tasks = new TaskService(new MemoryTaskRepository(), () => crypto.randomUUID());
 const root = document.getElementById('root');
 if (!root) throw new Error('TaskFlow root element was not found.');
-
-createRoot(root).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+createRoot(root).render(<StrictMode><App tasks={tasks} /></StrictMode>);

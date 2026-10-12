@@ -1,52 +1,36 @@
 # TaskFlow — Progress
 
 ## Current phase
-Phase 3 — Executable verification.
+Phase 3 — Executable verification, in_progress. Phase 4 remains not_started.
+Design System Estúdio Editorial v1 is approved and used by TASK-001.
+The owner authorized TASK-001 implementation on 2026-10-12; feature approval
+remains pending. No human approval records were edited.
 
-**State:** in_progress. PR #5 (design exploration) and PR #4 (application foundation)
-were merged. Design System v1 was approved by the owner on 2026-10-12.
-Phase 4 remains not_started and is not authorized by this work.
+## Done within the authorized implementation scope
+- Implemented title-only task creation, trimming and rejection of blank titles.
+- New tasks appear in A fazer with accurate counts and polite success feedback.
+- Accessible field errors, native modal, focus wrapping/Escape/return behavior.
+- Editorial light/dark tokens, responsive board and mobile ARIA tabs with focus recovery.
+- UI → TaskService → domain rules / TaskRepository → session-only memory adapter.
+- Dedicated TASK-001 unit/E2E suites and feature / TASK-001 workflow; validate preserved.
+- No new dependencies; no editing, deletion, filters, movement or durable storage.
 
-**Approved design decisions:** Estúdio Editorial, mobile Kanban tabs and the current
-Design System v1 (tokens, geometry, components and documented UX patterns).
-See docs/design-system.md and docs/ux-guidelines.md. These are no longer design
-gates; remaining work is implementing and testing functionality and accessibility.
-No feature was completed by this approval. All six features remain not_started.
+## In progress / handoff
+TASK-001 is being verified for owner review. TASK-002..TASK-006 remain not_started.
+Memory lifetime is intentional: reload resets tasks; persistence remains TASK-006.
+Feature verification policy is enabled only for TASK-001; this PR's new workflow
+is proposed until reviewed/merged. A PR check does not satisfy the trusted main-push
+promotion gate. No automatic merge or feature completion is authorized.
 
-## Done
-- Phase 1 and Phase 2 approved by the owner (existing phase records unchanged).
-- Existing state validator, PR state guard and feature-specific preflight policy retained.
-- Evidence-only approval integration merged previously; promotion authority remains pending.
-- Prepared a minimal React 19, TypeScript 5.9, Vite 7 and Tailwind CSS 4 application.
-- Added presentation-only application shell and documented reserved task layers:
-  UI, application/repository interface, domain and infrastructure/adapters.
-- Configured ESLint, strict TypeScript, Vitest and Playwright, with isolated test discovery.
-- Added initialization smoke tests; these are not TASK-001 acceptance tests.
-- Added npm scripts, lockfile, generated-file exclusions and README setup instructions.
-- Limited ESLint checks reject direct localStorage access in app/task UI files.
+## Pending
+- Owner visual/usability and screen-reader review, actual zoom/reflow and broader
+  browser coverage; automated Chromium checks do not certify full WCAG compliance.
+- Review/merge of this PR by owner, then trusted exact-main-revision evidence before
+  a separate owner-controlled promotion. Feature approval is separate from phase approval.
+- Existing secure promotion authority remains unresolved; no Phase 4 implementation.
 
-## In progress
-- Owner review of the remaining Design System details in PR #5: tokens, geometry
-  and components. Visual direction and mobile tab navigation are already approved.
-- TASK-001 implementation and feature acceptance tests require separate authorization;
-  this documentation update grants none.
-
-## Pending and blockers
-- No application feature is implemented. All six registry entries remain not_started.
-- Task use cases, domain types, repository interface and adapters are reserved, not implemented.
-- Dedicated feature test workflows are absent; verification policies remain pending.
-- Initialization tests do not verify task creation or authorize feature approval.
-- No authoritative protected promotion mechanism to done exists yet; reviewer identity
-  and separate approval authority remain unresolved as documented in docs/.
-- The localStorage lint restriction is not comprehensive import/boundary enforcement.
-- Application CI now has independent application and Chromium E2E jobs; both passed on PR #4.
-- Phase 4 still requires explicit owner approval after Phase 3 completion.
-
-## Current next steps and handoff
-1. Owner reviews the remaining Design System details and the documentation in PR #5.
-2. Await explicit authorization before implementing TASK-001 or other features.
-3. Do not merge PR #5 or advance to Phase 4 without owner authorization.
-
+## Current next action
+Finish final checks, publish the PR and wait for owner review and feature approval.
 ## Historical session records
 The records below preserve what was known and verified at each step. Earlier
 pending selections, branch references and next actions are historical; the current
