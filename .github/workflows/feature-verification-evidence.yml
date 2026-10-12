@@ -1,0 +1,42 @@
+name: Integrated feature evidence
+on:
+  workflow_dispatch:
+    inputs:
+      feature_id:
+        description: Feature to verify (no state or approval writes)
+        type: string
+        required: true
+      revision:
+        description: Full live main SHA to verify
+        type: string
+        required: true
+permissions:
+  contents: read
+  checks: read
+  actions: read
+jobs:
+  evidence:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Bind checkout to requested integrated revision
+        env:
+          REVISION: ${{ inputs.revision }}
+        run: test "$(git rev-parse HEAD)" = "$REVISION"
+      - name: Read live main and authoritative Actions evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FEATURE_ID: ${{ inputs.feature_id }}
+          REVISION: ${{ inputs.revision }}
+        run: node harness/collect-main-evidence.mjs "$FEATURE_ID" "$REVISION" verification "$RUNNER_TEMP/test-evidence.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: integrated-test-evidence-${{ github.run_id }}
+          path: ${{ runner.temp }}/test-evidence.json
+          retention-days: 30

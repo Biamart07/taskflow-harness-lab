@@ -16,7 +16,7 @@ remains pending. No human approval records were edited.
 - No new dependencies; no editing, deletion, filters, movement or durable storage.
 
 ## In progress / handoff
-TASK-001 is awaiting_approval after passing local acceptance checks. TASK-002..TASK-006 remain not_started.
+TASK-001 remains in_progress in PR #7. Local/PR tests are diagnostic evidence, not integrated approval evidence. TASK-002..TASK-006 remain not_started.
 Memory lifetime is intentional: reload resets tasks; persistence remains TASK-006.
 Feature verification policy is enabled only for TASK-001; this PR's new workflow
 is proposed until reviewed/merged. A PR check does not satisfy the trusted main-push
@@ -30,7 +30,22 @@ promotion gate. No automatic merge or feature completion is authorized.
 - Existing secure promotion authority remains unresolved; no Phase 4 implementation.
 
 ## Current next action
-Review the TASK-001 PR and docs/task-001-verification.md. Await owner review and feature approval; do not merge automatically.
+Review corrected PR #7 and docs/approval-evidence.md. After owner-controlled integration, query real main evidence before considering a separate awaiting_approval step. Do not merge automatically.
+## PR #7 harness corrections — 2026-10-12
+- P1: removed self-attested passed/revision fields; registry stays pending with
+  github_actions source. Read-only collector binds full requested SHA to live main
+  before/after fetching paginated GitHub check/workflow results.
+- Both validate and feature check require exact workflow, push/main, SHA, success
+  and linked check-suite. Approval preflight reuses this collector and still requires
+  awaiting_approval. Separate verification dispatch supports in_progress without writes.
+- P2: final PR base-to-head transition is checked against TRANSITIONS; intermediate
+  commits do not excuse not_started → awaiting_approval. TASK-001 ends in_progress.
+- Application, Design System, functional tests, validate workflow, phase states and
+  human approval records unchanged. No done mechanism or merge.
+- Security authority alternatives and external protection prerequisites documented
+  in docs/approval-evidence.md. Actual post-merge collection cannot be run for this
+  unmerged PR; main-push evidence is still pending.
+
 ## Historical session records
 The records below preserve what was known and verified at each step. Earlier
 pending selections, branch references and next actions are historical; the current
@@ -220,3 +235,12 @@ PR #4 is open for owner review. No merge into main was performed.
 - No application functionality, tests, phase registry, feature registry or approval fields changed by this documentation-only PR.
 - Phase 3 remains in_progress. Future feature-specific acceptance tests and a constrained human-authorized promotion mechanism remain unresolved.
 - Next: plan TASK-001 scope and test evidence using the approved visual system; do not mark done without required checks and separate human approval.
+
+## P1/P2 correction verification — 2026-10-12
+- npm run check passed (lint, typecheck/build, 9 application units and 84 harness
+  tests before final edge-case additions); final harness suite passed with 87 tests.
+- Three targeted regression files passed, 60 tests; 13 production Chromium E2E passed.
+- Final base-to-head registry guard and git diff --check passed. Application code,
+  functional tests, Design System, phases and validate workflow unchanged since de99a7b.
+- Live main evidence collection remains pending authorized integration; mock API
+  tests are not a claim that the integrated TASK-001 has passed on main.

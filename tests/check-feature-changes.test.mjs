@@ -32,3 +32,26 @@ test('rejects duplicate feature IDs', () => {
   const b = base();
   assert.equal(checkFeatureChanges(b, { features: [b.features[0], b.features[0]] }).ok, false);
 });
+
+for (const [from, to, allowed] of [
+  ['not_started', 'awaiting_approval', false],
+  ['not_started', 'in_progress', true],
+  ['in_progress', 'awaiting_approval', true],
+  ['blocked', 'awaiting_approval', false],
+  ['not_started', 'done', false],
+  ['in_progress', 'unknown', false],
+]) {
+  test(`checks final base-to-head transition ${from} -> ${to}`, () => {
+    const before = base(); before.features[0].state = from;
+    const after = structuredClone(before); after.features[0].state = to;
+    assert.equal(checkFeatureChanges(before, after).ok, allowed);
+  });
+}
+test('intermediate commits do not authorize skipped final merge transition', () => {
+  const before = base(); before.features[0].state = 'not_started';
+  const middle = structuredClone(before); middle.features[0].state = 'in_progress';
+  const after = structuredClone(middle); after.features[0].state = 'awaiting_approval';
+  assert.equal(checkFeatureChanges(before, middle).ok, true);
+  assert.equal(checkFeatureChanges(middle, after).ok, true);
+  assert.equal(checkFeatureChanges(before, after).ok, false);
+});

@@ -6,6 +6,7 @@ on:
     paths:
       - 'harness/features.json'
       - 'harness/check-feature-changes.mjs'
+      - 'harness/validate-transition.mjs'
       - 'tests/check-feature-changes.test.mjs'
       - '.github/workflows/feature-state-guard.yml'
   workflow_dispatch:

@@ -1,3 +1,11 @@
+# Current correction status — PR #7
+TASK-001 is in_progress; registry verification is pending with GitHub Actions as
+its source. The implementation revision below is historical diagnostic evidence,
+not the integrated main SHA or an approval prerequisite. P1/P2 are corrected by
+runtime GitHub evidence and final base-to-head transition checks. See
+approval-evidence.md for the post-merge sequence and remaining authority limits.
+
+## Historical initial handoff (superseded state proposal)
 # TASK-001 — verification and review handoff
 
 Implementation revision: fb29c71a420dda83b243626dda34d7294500ca92.
@@ -47,4 +55,18 @@ remains pending. Automated checks do not establish complete WCAG conformance.
 No localStorage: tasks exist only for this session and reload clears them, with a
 visible UI explanation. Durable storage belongs to TASK-006 and is not a TASK-001
 dependency. No editing, deletion, filtering or movement. Phase 4 and human approval
-records are unchanged. TASK-001 awaits review, is not done; no merge is authorized.
+records are unchanged. The original handoff proposed awaiting_approval, now superseded by in_progress; no merge is authorized.
+
+## Verification of P1/P2 correction — 2026-10-12
+- npm run check passed: lint, typecheck/build, 9 app unit tests, 84 harness tests
+  before three final malformed/incomplete/pagination regressions were added.
+- node --test tests/verify-approval-request.test.mjs tests/check-feature-changes.test.mjs
+  tests/collect-main-evidence.test.mjs passed: 60 targeted regressions.
+- node --test --test-reporter=dot tests/*.test.mjs passed: final 87 harness tests.
+- npm run test:e2e passed: all 13 Chromium production-build tests, including 12 TASK-001.
+- git diff --check passed; real origin/main-to-final registry guard passed.
+- Application/UI, functional unit/E2E sources, Design System, phases and existing
+  harness-validation.yml match the pre-correction PR revision de99a7b exactly.
+- No live integrated feature evidence was claimed: PR #7 is unmerged. Collector
+  API fixtures exercise success, pagination, API failure and concurrent main change.
+  Manual evidence workflows must be exercised after an owner-authorized integration.

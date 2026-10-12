@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
+import { TRANSITIONS } from './validate-transition.mjs';
 
 /**
  * Fail-closed gate for UNTRUSTED feature-list changes in a pull request.
@@ -20,6 +21,10 @@ export function checkFeatureChanges(before, after) {
     if (!next) {
       errors.push(`Existing feature ${id} was removed.`);
       continue;
+    }
+    if (!Object.hasOwn(TRANSITIONS, prev.state) || !Object.hasOwn(TRANSITIONS, next.state) ||
+        (prev.state !== next.state && !TRANSITIONS[prev.state].includes(next.state))) {
+      errors.push(`Feature ${id}: forbidden final PR transition ${prev.state} -> ${next.state}.`);
     }
     if (prev.state !== 'done' && next.state === 'done') {
       errors.push(`Feature ${id}: untrusted changes cannot set state=done. Owner-approved trusted workflow required.`);
