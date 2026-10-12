@@ -1,0 +1,215 @@
+{
+  "fixtureChecks": 30,
+  "layoutChecks": 30,
+  "interactionChecks": 18,
+  "emptyStateChecks": 18,
+  "contrast": [
+    {
+      "design": "serene",
+      "theme": "Claro",
+      "title": 14.618488694336772,
+      "primary": 6.333532036343697,
+      "priorities": [
+        {
+          "name": "Alta",
+          "ratio": 6.376234684238936
+        },
+        {
+          "name": "Média",
+          "ratio": 5.469223557667699
+        },
+        {
+          "name": "Baixa",
+          "ratio": 6.083307971710544
+        },
+        {
+          "name": "Alta",
+          "ratio": 6.376234684238936
+        },
+        {
+          "name": "Média",
+          "ratio": 5.469223557667699
+        },
+        {
+          "name": "Baixa",
+          "ratio": 6.083307971710544
+        }
+      ]
+    },
+    {
+      "design": "serene",
+      "theme": "Escuro",
+      "title": 13.010646406748611,
+      "primary": 8.831485890337051,
+      "priorities": [
+        {
+          "name": "Alta",
+          "ratio": 7.678086927733941
+        },
+        {
+          "name": "Média",
+          "ratio": 8.201713749196864
+        },
+        {
+          "name": "Baixa",
+          "ratio": 7.173205461633642
+        },
+        {
+          "name": "Alta",
+          "ratio": 7.678086927733941
+        },
+        {
+          "name": "Média",
+          "ratio": 8.201713749196864
+        },
+        {
+          "name": "Baixa",
+          "ratio": 7.173205461633642
+        }
+      ]
+    },
+    {
+      "design": "editorial",
+      "theme": "Claro",
+      "title": 14.209414592619229,
+      "primary": 7.167430430694315,
+      "priorities": [
+        {
+          "name": "Alta",
+          "ratio": 6.376234684238936
+        },
+        {
+          "name": "Média",
+          "ratio": 5.469223557667699
+        },
+        {
+          "name": "Baixa",
+          "ratio": 6.083307971710544
+        },
+        {
+          "name": "Alta",
+          "ratio": 6.376234684238936
+        },
+        {
+          "name": "Média",
+          "ratio": 5.469223557667699
+        },
+        {
+          "name": "Baixa",
+          "ratio": 6.083307971710544
+        }
+      ]
+    },
+    {
+      "design": "editorial",
+      "theme": "Escuro",
+      "title": 12.966113924520409,
+      "primary": 8.865873699369669,
+      "priorities": [
+        {
+          "name": "Alta",
+          "ratio": 7.678086927733941
+        },
+        {
+          "name": "Média",
+          "ratio": 8.201713749196864
+        },
+        {
+          "name": "Baixa",
+          "ratio": 7.173205461633642
+        },
+        {
+          "name": "Alta",
+          "ratio": 7.678086927733941
+        },
+        {
+          "name": "Média",
+          "ratio": 8.201713749196864
+        },
+        {
+          "name": "Baixa",
+          "ratio": 7.173205461633642
+        }
+      ]
+    },
+    {
+      "design": "technical",
+      "theme": "Claro",
+      "title": 15.634391359559796,
+      "primary": 6.987243524885476,
+      "priorities": [
+        {
+          "name": "Alta",
+          "ratio": 6.376234684238936
+        },
+        {
+          "name": "Média",
+          "ratio": 5.469223557667699
+        },
+        {
+          "name": "Baixa",
+          "ratio": 6.083307971710544
+        },
+        {
+          "name": "Alta",
+          "ratio": 6.376234684238936
+        },
+        {
+          "name": "Média",
+          "ratio": 5.469223557667699
+        },
+        {
+          "name": "Baixa",
+          "ratio": 6.083307971710544
+        }
+      ]
+    },
+    {
+      "design": "technical",
+      "theme": "Escuro",
+      "title": 13.980433014893263,
+      "primary": 7.58098782280974,
+      "priorities": [
+        {
+          "name": "Alta",
+          "ratio": 7.678086927733941
+        },
+        {
+          "name": "Média",
+          "ratio": 8.201713749196864
+        },
+        {
+          "name": "Baixa",
+          "ratio": 7.173205461633642
+        },
+        {
+          "name": "Alta",
+          "ratio": 7.678086927733941
+        },
+        {
+          "name": "Média",
+          "ratio": 8.201713749196864
+        },
+        {
+          "name": "Baixa",
+          "ratio": 7.173205461633642
+        }
+      ]
+    }
+  ],
+  "fonts": [
+    {
+      "design": "serene",
+      "family": "Manrope, system-ui, sans-serif"
+    },
+    {
+      "design": "editorial",
+      "family": "\"DM Sans\", system-ui, sans-serif"
+    },
+    {
+      "design": "technical",
+      "family": "\"IBM Plex Sans\", system-ui, sans-serif"
+    }
+  ],
+  "errors": []
+}

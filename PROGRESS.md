@@ -3,9 +3,18 @@
 ## Current phase
 Phase 3 — Executable verification.
 
-**State:** in_progress. Application foundation ready for owner review on
-`dev/taskflow-app-foundation`, based on updated main `7ad602d`.
+**State:** in_progress. Design documentation review on `design/kanban-exploration`
+in PR #5. The application foundation was merged through PR #4.
 Phase 4 remains not_started and is not authorized by this work.
+
+**Approved design decisions:** Estúdio Editorial was selected and approved as the
+visual direction. Tab navigation for the mobile Kanban was also explicitly approved.
+These decisions are resolved, not current blockers.
+
+**Pending design review:** only the remaining Design System details, including
+tokens, geometry and components; see docs/design-system.md and docs/ux-guidelines.md.
+No feature was completed or authorized for implementation by this documentation
+update or by these design decisions. All six features remain not_started.
 
 ## Done
 - Phase 1 and Phase 2 approved by the owner (existing phase records unchanged).
@@ -20,8 +29,10 @@ Phase 4 remains not_started and is not authorized by this work.
 - Limited ESLint checks reject direct localStorage access in app/task UI files.
 
 ## In progress
-- Owner review of the foundation on the development branch.
-- Future TASK-001 implementation and its meaningful acceptance tests, after review.
+- Owner review of the remaining Design System details in PR #5: tokens, geometry
+  and components. Visual direction and mobile tab navigation are already approved.
+- TASK-001 implementation and feature acceptance tests require separate authorization;
+  this documentation update grants none.
 
 ## Pending and blockers
 - No application feature is implemented. All six registry entries remain not_started.
@@ -33,6 +44,16 @@ Phase 4 remains not_started and is not authorized by this work.
 - The localStorage lint restriction is not comprehensive import/boundary enforcement.
 - Application CI now has independent application and Chromium E2E jobs; both passed on PR #4.
 - Phase 4 still requires explicit owner approval after Phase 3 completion.
+
+## Current next steps and handoff
+1. Owner reviews the remaining Design System details and the documentation in PR #5.
+2. Await explicit authorization before implementing TASK-001 or other features.
+3. Do not merge PR #5 or advance to Phase 4 without owner authorization.
+
+## Historical session records
+The records below preserve what was known and verified at each step. Earlier
+pending selections, branch references and next actions are historical; the current
+summary above supersedes them where later owner decisions resolved those items.
 
 ## Verification — 2026-10-11
 Environment: Windows, Node.js 22.19.0, npm 11.6.0.
@@ -77,3 +98,137 @@ PR #4 is open for owner review. No merge into main was performed.
   build, 1 Vitest test); e2e passed (1 Chromium smoke and uploaded report/traces).
   This evidence is bound to that revision; the documentation-only follow-up triggers a new run.
 - Next step: verify the jobs on PR #4 and wait for owner review; no merge or Phase 4 work.
+## UX/UI planning gate — 2026-10-11
+- Owner requested a visual direction approval gate inside Phase 3 before TASK-001.
+- Proposed three alternatives: Fluxo sereno, Estúdio editorial, Precisão técnica.
+- Recommendation: Fluxo sereno, subject to the owner decision; no direction is approved.
+- Prepared isolated preview mockups outside the Git checkout, using the available
+  visualize skill. No frontend/UX/accessibility-specific skill was available in the
+  session catalog; W3C, Playwright and jsx-a11y primary documentation informed proposals.
+- Proposed light/dark palettes, typography, component geometry, responsive reflow,
+  task creation interaction and future empty/error/loading behavior.
+- Objective future checks: token contrast, JSX semantics (jsx-a11y), axe scans,
+  keyboard/focus flows, responsive layout and screenshots in Playwright.
+- Human checks: visual identity, information density, clarity, screen-reader experience
+  and usefulness of each workflow. Passing automation does not establish full WCAG compliance.
+- Prototype verification: 24 direction/theme/width combinations, no script errors or
+  horizontal overflow detected; selected light/dark and mobile screenshots inspected.
+- Sample palette contrast: secondary text >=5.59:1, primary button labels >=6.33:1,
+  control borders >=3.52:1 against their specified surfaces. Other states require validation.
+- Application tests: not_run in this planning task (application code was not changed).
+- No libraries or dependencies installed; architecture and harness JSON records unchanged.
+- docs/design-system.md and docs/ux-guidelines.md will document approved decisions later.
+- Gate: await explicit owner choice of direction before definitive UI implementation;
+  choice alone does not approve TASK-001 or Phase 4.
+- PROGRESS.md is the only local repository change; no push, merge or feature implementation.
+## Kanban design exploration — 2026-10-11
+- Created dedicated local branch design/kanban-exploration from foundation commit cc76cf3;
+  PR #4 and main were not changed by this exploration.
+- Versioned three isolated prototypes in prototypes/kanban-exploration, with an
+  immutable shared fixture: six tasks, two intentionally long titles, three priorities
+  and three columns. Fixture IDs are EX-01..EX-06, unrelated to harness features.
+- Added light/dark comparison, preset empty-column/empty-board/no-results scenarios,
+  native mobile column navigation and cosmetic hover/focus/selection states.
+- Mobile proposal shows one selected column at a time, without horizontal overflow.
+- No TASK-001..TASK-006 use case, task mutation or persistence is implemented.
+  Search is read-only; priority dropdown is cosmetic; New Task is illustrative.
+- Added README, editable prototype fragment, standalone preview, screenshot gallery,
+  capture script and review screenshots. The visualize skill supports the preview;
+  no dedicated frontend skill was available and no dependencies were installed.
+- Added one isolation directive in src/styles.css to exclude prototypes from
+  Tailwind's automatic source scan. This introduces no definitive UI design.
+- Verification: 30 identical-fixture checks; 30 direction/theme/viewport layout checks;
+  18 hover/keyboard-focus/selection checks; 18 empty-scenario checks; 48 rendered
+  text/action/priority contrast measurements >=4.5:1. No script errors detected.
+- Captured 12 base desktop/mobile images, 12 empty-column images, 18 interaction
+  details and 4 comparison sheets. Representative desktop/mobile/dark/state images
+  were visually inspected; complete accessibility certification is not claimed.
+- npm run check passed: lint, typecheck/build, 1 Vitest smoke and 45 harness tests.
+- npm run test:e2e -- --project=chromium passed: 1 application smoke, exit code 0.
+- Production CSS/JS retained asset names index-0T0maZy1.css and index-Cs-4TCFX.js
+  after source exclusion; prototype code is not part of the production entry.
+- All features remain not_started; approval records, policies, phase registry,
+  architecture and dependency manifests are unchanged. Still Phase 3.
+- Review gate remains pending: owner chooses a direction before approved Design
+  System documentation and definitive interface implementation. No merge or push.
+
+## Estúdio Editorial refinements — 2026-10-11
+- Owner explicitly selected Estúdio Editorial: cream/violet, DM Sans, top navigation,
+  expressive heading and rounded cards. This supersedes the earlier direction-choice
+  pending notes. Detailed Design System and definitive implementation remain pending.
+  This narrative records session scope, not a harness approval or phase authorization.
+- Continued on local design/kanban-exploration; added isolated editorial-refinement
+  folder, preserving the three original explorations and production separation.
+- Refined column indicators with text plus distinct symbols; added optional sample
+  descriptions/deadlines to the same six immutable fictitious tasks. No task operations.
+- Compared stacked columns and accessible tabs at mobile widths; desktop retains
+  three columns. Provisional recommendation: mobile tabs, awaiting owner decision.
+- Added explicit light/dark previews, hover/focus/selection/error/disabled catalog,
+  empty/loading/error presets, interactive preview, gallery and 22 browser captures.
+- Proposed docs/design-system.md and docs/ux-guidelines.md: semantic tokens,
+  typography/geometry, component states, responsive behavior and future UX flows.
+  Both distinguish automated criteria, checks actually run and human review needs.
+- Chromium prototype checks passed: 20 fixture, 24 layout, 26 keyboard, 20 state,
+  20 scenario and 10 gallery/control checks. No script errors. DM Sans loaded.
+- 92 rendered contrast pairs passed: minimum text 5.005:1, minimum measured
+  non-text pair 3.729:1. Limited to sampled pairs, not complete WCAG certification.
+- Visually inspected light desktop, light stacked mobile, dark tabs mobile and
+  light/dark state/comparison captures; padded state crops preserve focus rings.
+- npm run check passed: lint, typecheck/build, 1 Vitest smoke, 45 harness tests.
+  npm run test:e2e -- --project=chromium passed: 1 production-build smoke, exit 0.
+  Production assets retain index-0T0maZy1.css and index-Cs-4TCFX.js.
+- git diff --check passed; production source, harness records/policies, workflows,
+  architecture and dependency manifests match the pre-refinement revision.
+- No dependencies installed, features implemented, approval records edited, push,
+  merge or Phase 4 work. All features remain not_started; current phase is 3.
+- Pending/limits: owner review of tokens, density, themes, states and mobile layout;
+  axe and jsx-a11y are future proposals requiring installation approval. Screen-reader,
+  actual zoom/reflow, cross-browser and comprehensive touch-target validation pending.
+  Focus recovery when resize hides an active element must be defined before final UI.
+- Next action: wait for owner review. Direction approval alone does not authorize
+  the definitive interface, TASK-001..TASK-006 or phase advancement.
+
+## Design PR publication — 2026-10-11
+- Owner authorized publishing design/kanban-exploration and opening a PR to main.
+- Fetched origin/main and confirmed PR #4 was already merged externally at 183dca2.
+  The new PR contains only design exploration, editorial refinements, proposed docs,
+  progress notes and the Tailwind prototype-source exclusion.
+- Local verification evidence remains bound to d8220d0; this follow-up changes
+  documentation only. git diff --check passed before publication.
+- Detailed Design System/mobile choices remain pending human review. No feature,
+  approval, phase, dependency or workflow changes; no merge authorized or performed.
+
+## Mobile Kanban navigation approved — 2026-10-11
+- Owner explicitly approved mobile tabs; Estúdio Editorial remains the approved
+  visual identity. This supersedes earlier notes that the mobile choice was pending.
+- Approved requirements: desktop shows three columns side by side; mobile shows
+  one column at a time with A fazer, Em andamento and Concluído tabs, each displaying
+  its task count; touch/keyboard navigation follows WAI-ARIA tabs; visible focus and
+  appropriate focus management across breakpoints; no horizontal task navigation.
+- Updated docs/design-system.md and docs/ux-guidelines.md on design/kanban-exploration.
+  PR #5 remains open for main and will receive this documentation-only follow-up.
+- Documented focus acceptance criteria: preserve visible focus/context, keep the
+  focused column visible when entering mobile, recover focus to corresponding
+  visible content if its tab is hidden on desktop, and never strand focus in a hidden
+  panel. Implementation/testing of breakpoint recovery remains pending; no prototype
+  or production code changed and no new accessibility success is claimed.
+- Tokens, component details, density, themes, exact breakpoints/geometry and other
+  UX flows remain proposed. Stacked columns remain exploration history only.
+- Verification: npm run test:harness passed (45 tests, zero failures/skips);
+  git diff --check passed; diff scope limited to these three documentation files.
+  src/, prototypes/, harness/, workflows and dependency manifests are unchanged.
+  Application and prototype checks were not rerun because executable code is unchanged.
+- Still Phase 3; all six features remain not_started. No feature/phase approval
+  records changed, no dependencies installed and no merge performed.
+- Next step: publish the documentation update to PR #5 and await owner review
+  before merge. These design approvals do not authorize feature implementation.
+
+## PR #5 P2 current-status correction — 2026-10-11
+- Removed the resolved direction-selection blocker from the current summary;
+  recorded Editorial identity and mobile tabs as approved, with remaining tokens,
+  geometry and components still under review. Explicitly separated historical records.
+- Documentation-only change in PROGRESS.md. npm run test:harness passed (45 tests,
+  zero failures/skips); git diff --check passed. Application/prototype checks not
+  rerun because executable code is unchanged. Feature/approval records unchanged.
+- Phase 3 remains in_progress; no feature implementation authorization, completion,
+  merge or phase advancement. Await owner review of PR #5.
